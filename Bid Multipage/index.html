@@ -1,0 +1,3958 @@
+<!DOCTYPE html>
+<html data-sign="OSZ">
+
+<head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    <style>
+        @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/sheffield-headline/stylesheet.css');
+        @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/sheffield-stencil/stylesheet.css');
+        @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/univers/stylesheet.css');
+        @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/univers-lt/stylesheet.css');
+        @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Univers/stylesheet.css');
+
+        /* 
+      Input order 
+
+      {{show-crop}}
+      {{ placeholder-toggle-new }}
+      {{ placeholder-opacity }}
+      {{ placeholder-image-1 }}
+      {{ placeholder-image-2 }}
+      {{ placeholder-image-3 }}
+      {{ placeholder-image-4 }}
+      {{ placeholder-image-5 }}
+      {{ placeholder-image-6 }}
+      {{ placeholder-image-7 }}
+      {{ placeholder-image-8 }}
+      {{ placeholder-image-9 }}
+      {{ placeholder-image-10 }}
+      {{ placeholder-image-11 }}
+      {{ placeholder-image-12 }}
+      {{ placeholder-image-13 }}
+      {{ placeholder-image-14 }}
+      {{ placeholder-image-15 }}
+      {{ placeholder-image-16 }}
+      {{ placeholder-image-17 }}
+      {{placeholder-validation}}
+      {{SCC_colour-theme--mp}}
+      {{{SCC_upper-feature-image--mp}}}
+      {{{SCC_heading--mp}}}
+      {{{SCC_subheading--mp}}}
+      {{{SCC_lower-feature-image--mp}}}
+      {{#collection.SCC_supporter-logos--mp}}{{/collection.SCC_supporter-logos--mp}}
+      {{#collection.SCC_pages--mp}}
+      {{#block.SCC_section-divider-a--mp}}{{/block.SCC_section-divider-a--mp}}
+      {{#block.SCC_section-divider-b--mp}}{{/block.SCC_section-divider-b--mp}}
+      {{#block.SCC_single-column-page-a--mp}}{{/block.SCC_single-column-page-a--mp}}
+      {{#block.SCC_single-column-page-b--mp}}{{/block.SCC_single-column-page-b--mp}}
+      {{#block.SCC_double-column-page-a--mp}}
+      {{{page-title}}} 
+      {{{page-title-font-size}}}
+      {{{hero-image--mp}}}
+      {{#collection.SCC_left-column--mp}}{{/collection.SCC_left-column--mp}}
+      {{#collection.SCC_rigth-column--mp}}{{/collection.SCC_rigth-column--mp}}
+      {{/block.SCC_double-column-page-a--mp}}
+      {{#block.SCC_double-column-page-b--mp}}
+      {{{page-title}}} 
+      {{{page-title-font-size}}}
+      {{{intro-paragraph}}}
+      {{#collection.SCC_left-column--mp}}{{/collection.SCC_left-column--mp}}
+      {{#collection.SCC_rigth-column--mp}}{{/collection.SCC_rigth-column--mp}}
+      {{{footer-text--mp}}}
+      {{#collection.SCC_footer-social-media--mp}}{{/collection.SCC_footer-social-media--mp}}
+      {{{footer-photo-1}}}
+      {{{footer-photo-2}}}
+      {{/block.SCC_double-column-page-b--mp}}
+      {{#block.SCC_double-column-page-c--mp}}{{/block.SCC_double-column-page-c--mp}}
+      {{#block.SCC_double-column-page-d--mp}}
+      {{{page-layout-mp}}}
+      {{{page-title}}} 
+      {{{page-title-font-size}}}
+      {{{intro-paragraph}}}
+      {{{hero-image--mp}}}
+      {{#collection.SCC_left-column--mp}}{{/collection.SCC_left-column--mp}}
+      {{#collection.SCC_rigth-column--mp}}{{/collection.SCC_rigth-column--mp}}
+      {{/block.SCC_double-column-page-d--mp}}
+      {{#block.SCC_location-map-page--mp}}{{/block.SCC_location-map-page--mp}}
+      {{#block.SCC_list-page--mp}}{{/block.SCC_list-page--mp}}
+      {{#block.SCC_floor-plan-page--mp}}{{/block.SCC_floor-plan-page--mp}}
+      {{#block.SCC_accommodation-list-9-listings--mp}}{{/block.SCC_accommodation-list-9-listings--mp}}
+      {{#block.SCC_accommodation-list-11-listings--mp}}{{/block.SCC_accommodation-list-11-listings--mp}}
+      {{#block.SCC_table-page--mp}}{{/block.SCC_table-page--mp}}
+      {{#block.SCC_static-letter-page--mp}}{{/block.SCC_static-letter-page--mp}}
+      {{/collection.SCC_pages--mp}}
+
+      */
+
+        :root {
+            --pink: {
+                    {
+                        {
+                        account.colors.people-s-pink
+                    }
+                }
+            }
+
+            ;
+
+            --blue: {
+                    {
+                        {
+                        account.colors.great-outdoors-blue
+                    }
+                }
+            }
+
+            ;
+
+            --orange: {
+                    {
+                        {
+                        account.colors.start-up-orange
+                    }
+                }
+            }
+
+            ;
+
+            --white: {
+                    {
+                        {
+                        account.colors.gallery-white
+                    }
+                }
+            }
+
+            ;
+
+            --black: {
+                    {
+                        {
+                        account.colors.industrial-black
+                    }
+                }
+            }
+
+            ;
+
+            --grey: {
+                    {
+                        {
+                        account.colors.misty-grey
+                    }
+                }
+            }
+
+            ;
+
+            --cotton: {
+                    {
+                        {
+                        account.colors.bag-cotton
+                    }
+                }
+            }
+
+            ;
+        }
+
+        .colourTheme--conference {
+            --dynamic-colour: var(--pink);
+        }
+
+        .colourTheme--invest {
+            --dynamic-colour: var(--blue);
+        }
+
+        .colourTheme--business {
+            --dynamic-colour: var(--orange);
+        }
+
+        html {
+            font-family: 'Sheffield Headline';
+            color: var(--black);
+            word-break: break-word;
+        }
+
+        .backgroundImage {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+        .backgroundImage div {
+            width: auto !important;
+            height: auto !important;
+            right: 0;
+            bottom: 0;
+        }
+
+        .backgroundImage--staticLetterPage {
+            margin: 10pt;
+        }
+
+        .fit {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fit--frontCover {
+            padding-bottom: 46pt;
+        }
+
+        .fit--sectionDividerA {
+            justify-content: flex-end;
+        }
+
+        .fit--doubleColumnPageA,
+        .fit--doubleColumnPageD {
+            padding-bottom: 53pt;
+        }
+
+        .fit--imagePageA {
+            padding-bottom: 53pt;
+        }
+
+        .fit--listPage {
+            padding-bottom: 48pt;
+        }
+
+        .fit--locationMap {
+            flex-direction: row;
+        }
+
+        .header {
+            display: flex;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .header__left {
+            display: flex;
+            align-items: flex-end;
+            margin-right: 21pt;
+        }
+
+        .header--sectionDividerB {
+            justify-content: space-between;
+            padding-left: 61pt;
+            padding-bottom: 29pt;
+            background-color: var(--dynamic-colour);
+        }
+
+        .header--singleColumnPageA {
+            margin-bottom: 30pt;
+        }
+
+        .header--doubleColumnPageA {
+            margin-bottom: 28pt;
+            padding-right: 39pt;
+        }
+
+        .header--doubleColumnPageA.header--withHero {
+            height: 367pt;
+        }
+
+        .header--imagePageA.header--withHero {
+            height: 782pt;
+        }
+
+        .header--imagePageB.header--withHero {
+            height: 425pt;
+        }
+
+        .header--imagePageC.header--withHero {
+            height: 456pt;
+        }
+
+        .image-caption {
+            font-family: 'Univers LT Pro 55';
+            font-size: 0.25em;
+            margin-top: 5px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .signoff__textbox {
+            font-family: 'Univers LT Pro 55';
+            font-size: 0.275em;
+            margin-top: 5px;
+        }
+
+        .signoff__textbox--singleColumnPageA {
+            margin-left: 24em;
+        }
+
+        .signoff__textbox--doubleColumnPageC {
+            margin-left: 10pt;
+        }
+
+        .image-caption-top-image {
+            margin-right: 3.2em;
+        }
+
+        .image-right-caption {
+            justify-content: flex-start;
+        }
+
+        .header--doubleColumnPageB {
+            flex-direction: column;
+            min-height: 187pt;
+            margin-bottom: 28pt;
+            padding-right: 98pt;
+        }
+
+        .header--doubleColumnPageC,
+        .header--tablePage {
+            margin-bottom: 25pt;
+        }
+
+        .header--doubleColumnPageD {
+            flex-direction: column;
+            margin-bottom: 24pt;
+        }
+
+        .pageLayout--2 .header--doubleColumnPageD.header--withHero {
+            height: 307pt;
+        }
+
+        .pageLayout--2 .header--doubleColumnPageD.header--withHero.header--withIntro {
+            height: 367pt;
+        }
+
+        .pageLayout--2 .header--doubleColumnPageD {
+            margin-bottom: 28pt;
+        }
+
+        .header--accommodationList9 {
+            flex-direction: column;
+            margin-bottom: 27pt;
+        }
+
+        .header--accommodationList11 {
+            margin-bottom: 29pt;
+        }
+
+        .header--listPage {
+            margin-bottom: 29pt;
+        }
+
+        .header__logo {}
+
+        .header__logo--doubleColumnPageB {
+            position: absolute;
+            left: 100%;
+            top: 98pt;
+            height: 90pt;
+            width: 90pt;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .header__info {}
+
+        .header__info--doubleColumnPageB,
+        .header__info--doubleColumnPageD {
+            font-size: 20.8pt;
+            background-color: var(--grey);
+        }
+
+        .header__info--doubleColumnPageB {
+            padding: 26pt 38pt;
+            line-height: 1.1em;
+        }
+
+        .header__info--doubleColumnPageD {
+            width: 455pt;
+            padding: 18pt 38pt;
+            line-height: 1.3em;
+        }
+
+        .header__info--accommodationList9 {
+            max-height: 95pt;
+            width: 544pt;
+            padding-left: 39pt;
+            padding-top: 29pt;
+        }
+
+        .header__info--accommodationList9 h1 {
+            margin-bottom: 9.2pt;
+            font-size: 18pt;
+            line-height: 1.2em;
+        }
+
+        .header__info--accommodationList9 p {
+            margin-bottom: 8.2pt;
+            font-size: 10.2pt;
+            font-family: 'Univers LT Pro 55';
+            line-height: 1.3em;
+        }
+
+        .header__info--accommodationList9 h1:last-child,
+        .header__info--accommodationList9 p:last-child {
+            margin-bottom: 0;
+        }
+
+        .colourTheme--conference .header__logo--doubleColumnPageB {
+            background-image: url({{{account.logos.conference-scc-2}}});
+        }
+
+        .colourTheme--invest .header__logo--doubleColumnPageB {
+            background-image: url({{{account.logos.invest-scc-2}}});
+        }
+
+        .colourTheme--business .header__logo--doubleColumnPageB {
+            background-image: url({{{account.logos.business-scc-2}}});
+        }
+
+        .body {
+            flex: 1;
+            position: relative;
+        }
+
+        .body--frontCover,
+        .body--sectionDividerB,
+        .body--singleColumnPageA {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .body--sectionDividerA {
+            flex: none;
+            padding-right: 38pt;
+        }
+
+        .body--sectionDividerB {
+            justify-content: flex-end;
+            padding-right: 69pt;
+        }
+
+        .body--singleColumnPageA {
+            padding-right: 38pt;
+        }
+
+        .body--singleColumnPageB {
+            padding-right: 128pt;
+        }
+
+        .pageLayout--2 .body--doubleColumnPageD {
+            padding: 0pt 69pt 0pt 38pt;
+        }
+
+        .body--accommodationList9 {
+            padding-left: 39pt;
+            padding-right: 68pt;
+        }
+
+        .body--accommodationList11 {
+            padding-left: 38pt;
+            padding-right: 54pt;
+        }
+
+        .body--tablePage {
+            padding: 0 38pt;
+        }
+
+        .solidShape {
+            position: absolute;
+        }
+
+        .solidShape--frontCover {
+            width: 515pt;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            background-color: var(--dynamic-colour);
+        }
+
+        .shape {
+            width: 544pt;
+            position: relative;
+            background-color: var(--dynamic-colour);
+        }
+
+        .shape--header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            height: 98pt;
+            padding: 18pt 38pt 10pt;
+            flex-direction: column;
+        }
+
+        .shape--imagePageB {
+            padding: 30pt 38pt 10pt;
+        }
+
+        .shape--middle {
+            height: 32pt;
+        }
+
+
+        .shape--doubleColumnPageB.shape--header {
+            width: 485pt;
+        }
+
+        .shape--header.shape--floorPlanPage {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 34pt 38pt 10pt;
+        }
+
+        .pageLayout--1 .header--withHero .shape--doubleColumnPageD {
+            margin-bottom: 387pt;
+        }
+
+        .pageLayout--1 .header--withHero.header--withIntro .shape--doubleColumnPageD {
+            margin-bottom: 358pt;
+        }
+
+        .shape--header.shape--accommodationList9 {
+            padding: 18pt 32pt 10pt 39pt;
+        }
+
+        .shape--header.shape--accommodationList11 {
+            height: 128pt;
+            padding: 28pt 32pt 42pt 39pt;
+        }
+
+        .shape--footer {
+            height: 77pt;
+        }
+
+        .shape--footer.shape--tablePage {
+            margin-left: 68pt;
+        }
+
+        .shape--header:after,
+        .shape--footer:before {
+            content: "";
+            position: absolute;
+            width: 30pt;
+            background-color: var(--grey);
+        }
+
+        .shape--singleColumnPageA.shape--header:after,
+        .shape--doubleColumnPageC.shape--header:after,
+        .shape--floorPlanPage.shape--header:after,
+        .shape--listPage.shape--header:after,
+        .shape--accommodationList9.shape--header:after,
+        .shape--accommodationList11.shape--header:after,
+        .shape--doubleColumnPageB.shape--header:after,
+        .shape--tablePage.shape--header:after {
+            top: 0;
+            left: 100%;
+            height: 68pt;
+        }
+
+        .shape--singleColumnPageA.shape--footer:before,
+        .shape--doubleColumnPageC.shape--footer:before,
+        .shape--floorPlanPage.shape--footer:before,
+        .shape--accommodationList9.shape--footer:before,
+        .shape--accommodationList11.shape--footer:before,
+        .shape--tablePage.shape--footer:before {
+            bottom: 0;
+            right: 100%;
+            height: 47pt;
+        }
+
+        .shape--doubleColumnPageA.shape--header:after {
+            top: 0;
+            left: 100%;
+            height: 69pt;
+        }
+
+        .shape--doubleColumnPageB.shape--withIntro.shape--header:after {
+            top: 0;
+            left: 100%;
+            height: 98pt;
+        }
+
+        .featureImage__container {
+            display: flex;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .featureImage__container--frontCoverTop {
+            justify-content: flex-end;
+            margin-bottom: 26pt;
+        }
+
+        .featureImage__container--frontCoverBottom {}
+
+        .featureImage {
+            position: relative;
+            font-size: 0;
+        }
+
+        .featureImage--frontCoverTop {
+            height: 217pt;
+            width: 276pt;
+        }
+
+        .featureImage--frontCoverBottom {
+            height: 328pt;
+            width: 455pt;
+        }
+
+        .featureImage--sectionDividerBTop,
+        .featureImage--sectionDividerBMiddle {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .featureImage--sectionDividerBTop {
+            height: 277pt;
+            width: 1132pt;
+            margin-bottom: 2pt;
+            background-image: url(https://files.outfit.io/media_library_items/161451/Asset%25202.png);
+        }
+
+        .featureImage--sectionDividerBMiddle {
+            height: 298pt;
+            width: 100%;
+            background-image: url(https://files.outfit.io/media_library_items/161452/Asset%25201.png);
+        }
+
+        .text {
+            position: relative;
+        }
+
+        .text--frontCover {
+            flex: 1;
+            width: 455pt;
+            padding-left: 38pt;
+        }
+
+        .heading {
+            position: relative;
+            color: var(--white);
+        }
+
+        .heading--frontCover {
+            position: relative;
+            margin-bottom: 14.2pt;
+            font-size: 50.5pt;
+            line-height: 0.9em;
+        }
+
+        .heading--sectionDividerA,
+        .heading--sectionDividerB {
+            font-size: 47.8pt;
+            line-height: 1em;
+        }
+
+        .subheading {
+            line-height: 1.2em;
+            color: var(--white);
+        }
+
+        .subheading--frontCover {
+            font-size: 19pt;
+        }
+
+        .hero {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -10;
+            overflow: hidden;
+        }
+
+        .hero--sectionDividerA {
+            height: 397pt;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url(https://files.outfit.io/media_library_items/157234/MS-image3.jpg);
+        }
+
+        .hero--doubleColumnPageA {
+            right: 6.2%;
+            top: 69pt;
+        }
+
+        .hero-lower--doubleColumnPageA {
+            top: 10.65em;
+            height: 7.5em;
+            width: 13.4em;
+        }
+
+        .pageLayout--1 .header--withHero .hero--doubleColumnPageD {
+            bottom: 0pt;
+            top: 38pt;
+        }
+
+        .pageLayout--1 .header--withHero.header--withIntro .hero--doubleColumnPageD {
+            bottom: 35pt;
+            top: 38pt;
+        }
+
+        .pageLayout--2 .hero--doubleColumnPageD {
+            top: 97pt;
+            left: 38pt;
+            right: 99pt;
+        }
+
+        .pageLayout--2 .header--withIntro .hero--doubleColumnPageD {
+            top: 157pt;
+            left: 38pt;
+            right: 99pt;
+        }
+
+        .hero--floorPlanPage {
+            width: 83.1%;
+            height: 100%;
+            left: 7.4%;
+            top: 0%;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid--sectionDividerA {
+            grid-template-columns: 306pt 268pt;
+            grid-template-rows: 238pt 208.5pt 196pt
+        }
+
+        .grid--accommodationList9 {
+            grid-template-columns: 149pt 149pt 149pt;
+            grid-gap: 29pt;
+            grid-auto-flow: dense;
+        }
+
+        .grid--accommodationList11 {
+            grid-template-columns: 163pt 163pt 163pt;
+            grid-gap: 16pt;
+            grid-auto-flow: dense;
+        }
+
+
+        .grid__item--sectionDividerA,
+        .grid__item--accommodationList9,
+        .grid__item--accommodationList11 {
+            display: flex;
+        }
+
+        .grid__item--accommodationList9,
+        .grid__item--accommodationList11 {
+            position: relative;
+            flex-direction: column;
+            background-color: var(--grey);
+        }
+
+        .grid__item--accommodationList9 {
+            height: 178pt;
+        }
+
+        .grid__item--accommodationList11 {
+            height: 148pt;
+            background-color: var(--grey);
+        }
+
+        .grid__item--introText {
+            grid-column: 3;
+            position: relative;
+            z-index: -2;
+        }
+
+        .grid__item--top {
+            align-items: flex-end;
+            padding: 54pt 39pt;
+        }
+
+        .grid__item--middle {
+            align-items: center;
+            padding: 25pt 38pt;
+            background-color: var(--black);
+        }
+
+        .box {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 54pt 54pt 10pt 7pt;
+            width: calc(100% + 54pt);
+            height: calc(100% + 59pt);
+            background: #e3e3e3;
+            box-sizing: border-box;
+            z-index: -1;
+        }
+
+        .box h1 {
+            margin-bottom: 4pt;
+            font-size: 24.3pt;
+            line-height: 1.2em;
+        }
+
+        .box p {
+            margin-bottom: 5pt;
+            font-size: 16.1pt;
+            line-height: 1.2em;
+        }
+
+        .box h1:last-child,
+        .box p:last-child {
+            margin-bottom: 0pt;
+        }
+
+        .grid__item--bottom {
+            padding: 27pt 38pt;
+        }
+
+        .grid__item--top,
+        .grid__item--bottom {
+            background-color: var(--dynamic-colour);
+        }
+
+        .grid__text {
+            color: var(--white);
+        }
+
+        .grid__text--middle {
+            font-size: 28pt;
+            line-height: 1.1em;
+        }
+
+        .grid__text--bottom {
+            font-size: 18pt;
+            line-height: 1.2em;
+        }
+
+        .grid__photo {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .grid__photo--big {
+            width: 100%;
+            background-image: url(https://files.outfit.io/media_library_items/157237/MS-Image5.jpg);
+        }
+
+        .grid__photo--small {
+            width: 153pt;
+            height: 119pt;
+            background-image: url(https://files.outfit.io/media_library_items/157236/MS-Image6.jpg);
+        }
+
+        .grid__quote {
+            position: relative;
+            padding-left: 7pt;
+        }
+
+        .grid__quote:before,
+        .grid__quote:after {
+            content: '"';
+            position: absolute;
+        }
+
+        .grid__quote:before {
+            left: -0.8pt;
+        }
+
+        .grid__image {
+            flex-shrink: 0;
+        }
+
+        .grid__image--noImage {
+            background-color: var(--dynamic-colour);
+        }
+
+        .grid__image--accommodationList9,
+        .grid__image--accommodationList11 {
+            width: 100%;
+            position: relative;
+        }
+
+        .grid__image--accommodationList9 {
+            height: 88pt;
+        }
+
+        .grid__image--accommodationList11 {
+            height: 89pt;
+        }
+
+        .grid__content {
+            flex: 1;
+        }
+
+        .grid__content--accommodationList9 {
+            padding: 4pt 7pt;
+        }
+
+        .grid__content--accommodationList11 {
+            padding: 4pt 3pt 0pt 8pt;
+        }
+
+
+        .grid__title--accommodationList9,
+        .grid__title--accommodationList11 {
+            font-family: 'Univers LT Pro 55';
+            line-height: 1.2em;
+        }
+
+        .grid__title--accommodationList9 {
+            margin-bottom: 8pt;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .grid__title--accommodationList11 {
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .grid__rating--accommodationList11 {
+            font-family: 'Univers LT Pro 55';
+            font-size: 10pt;
+            line-height: 1.2em;
+        }
+
+        .grid__description--accommodationList9,
+        .grid__description--accommodationList11 {
+            font-family: 'Univers LT Pro 55';
+            line-height: 1.4em;
+        }
+
+        .grid__description--accommodationList9 {
+            font-size: 10pt;
+        }
+
+        .grid__description--accommodationList11 {
+            font-size: 10pt;
+        }
+
+        .quote {
+            position: relative;
+        }
+
+        .quote--sectionDividerB {
+            width: 396pt;
+            padding: 26pt 48pt 33pt 68pt;
+            background-color: var(--grey);
+            min-height: 196pt;
+        }
+
+        .quote--sectionDividerB h1 {
+            font-size: 28pt;
+            line-height: 1.1em;
+            color: var(--dynamic-colour);
+        }
+
+        .quote--sectionDividerB h2 {
+            font-size: 18.1pt;
+            line-height: 1.1em;
+        }
+
+        .quote--sectionDividerB p {
+            position: relative;
+            margin-bottom: 4pt;
+            padding-left: 6pt;
+            font-size: 18.1pt;
+            line-height: 1.2em;
+        }
+
+        .quote__container {
+            margin-top: -36pt;
+            height: 344pt;
+            padding: 58pt 29pt;
+            background-color: var(--dynamic-colour);
+        }
+
+        .quote--locationMap {
+            max-height: 237pt;
+            position: relative;
+            color: var(--white);
+        }
+
+        .quote--locationMap h1 {
+            font-size: 18pt;
+            line-height: 1.2em;
+        }
+
+        .quote--locationMap p,
+        .quote--locationMap li,
+        .quote--locationMap a {
+            font-family: 'Univers LT Pro 55';
+        }
+
+        .quote--locationMap p {
+            font-size: 10.17pt;
+            margin-bottom: 2.8pt;
+            line-height: 1.3em;
+        }
+
+        .quote--locationMap ul {
+            margin-bottom: 4pt;
+            padding-left: 12pt;
+            list-style-type: disc;
+        }
+
+        .quote--locationMap li {
+            font-size: 10.17pt;
+            margin-bottom: 2.8pt;
+            line-height: 1.2em;
+        }
+
+        .quote--locationMap a {
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .quote--locationMap p:last-child,
+        .quote--locationMap ul:last-child,
+        .quote--locationMap li:last-child {
+            margin-bottom: 0pt;
+        }
+
+        .quote--sectionDividerB p:before,
+        .quote--sectionDividerB p:after {
+            content: '"';
+            position: absolute;
+        }
+
+        .quote--sectionDividerB p:before {
+            left: -0.8pt;
+        }
+
+        .pageTitle {
+            font-size: 37.5pt;
+            color: var(--white);
+        }
+
+        .pageSubtitle {
+            font-size: 14pt;
+            color: var(--black);
+            margin-top: 0.1rem;
+        }
+
+        .pageTitle--floorPlanPage {
+            margin-bottom: 4pt;
+            font-size: 30pt;
+            line-height: 1em;
+        }
+
+        .pageTitle--listPage,
+        .pageTitle--accommodationList9,
+        .pageTitle--accommodationList11 {
+            font-size: 46pt;
+            line-height: 1.2em;
+        }
+
+        .pageTitle__inner {
+            line-height: 1.2em;
+        }
+
+        .pageSubheading {
+            font-size: 14.1pt;
+            line-height: 1.2em;
+        }
+
+        .textBox {
+            position: relative;
+        }
+
+        .textBox--grey {
+            background-color: var(--grey);
+        }
+
+        .textBox--singleColumnPageA {
+            margin-bottom: 26pt;
+            padding-left: 38pt;
+        }
+
+        .textBox--singleColumnPageA.textBox--grey {
+            margin-right: 30pt;
+            padding: 25pt 33pt 34pt 38pt;
+        }
+
+        .textBox--singleColumnPageB {
+            margin-top: 31pt;
+            padding-left: 38pt;
+        }
+
+        .textBox--singleColumnPageB:first-child {
+            margin-top: 0pt;
+        }
+
+        .textBox--singleColumnPageB.textBox--grey {
+            padding: 15pt 33pt 15pt 38pt;
+        }
+
+        .textBox--doubleColumnPageA {
+            margin-bottom: 13pt;
+        }
+
+        .textBox.textBox--doubleColumnPageD p {
+            font-size: 10pt;
+            margin-bottom: 12pt;
+        }
+
+        .textBox--doubleColumnPageD {}
+
+        .textBox--doubleColumnPageA,
+        .textBox--doubleColumnPageB {
+            margin-bottom: 26pt;
+        }
+
+        .column--left .textBox--doubleColumnPageA,
+        .column--left .textBox--doubleColumnPageB {
+            padding-left: 39pt;
+        }
+
+        .column--right .textBox--doubleColumnPageA,
+        .column--right .textBox--doubleColumnPageB {
+            padding-right: 32pt;
+            padding-left: 15pt;
+        }
+
+        .column--left .textBox--doubleColumnPageC,
+        .column--left .textBox--doubleColumnPageD {
+            padding-right: 10pt;
+            padding-left: 38pt;
+        }
+
+        .pageLayout--2 .column--left .textBox--doubleColumnPageD {
+            padding: 0pt 17pt 13pt 0pt;
+        }
+
+        .column--right .textBox--doubleColumnPageC {
+            margin-bottom: 10pt;
+            padding-right: 65pt;
+            padding-left: 10pt;
+        }
+
+        .column--right .textBox--doubleColumnPageD {
+            padding-right: 45pt;
+        }
+
+        .column--left .textBox--doubleColumnPageA.textBox--grey,
+        .column--left .textBox--doubleColumnPageB.textBox--grey {
+            padding: 16pt 10pt 16pt 39pt;
+        }
+
+        .pageLayout--2 .column--left .textBox--doubleColumnPageD.textBox--grey {
+            padding: 22pt 29pt 22pt 39pt;
+        }
+
+
+        .column--left .textBox--doubleColumnPageD.textBox--grey {
+            padding: 22pt 29pt 22pt 39pt;
+        }
+
+        .column--left .textBox--doubleColumnPageD.textBox--grey.textBox--withImage {
+            padding: 86pt 29pt 22pt 39pt;
+            margin-top: 90pt;
+        }
+
+        .column--right .textBox--doubleColumnPageA.textBox--grey,
+        .column--right .textBox--doubleColumnPageB.textBox--grey {
+            padding: 16pt 39pt 16pt 15pt;
+        }
+
+        .column--right .textBox--doubleColumnPageD.textBox--grey {
+            padding: 20pt 39pt 22pt 29pt;
+        }
+
+        .column--right .textBox--doubleColumnPageD.textBox--withImage {
+            padding: 86pt 39pt 22pt 29pt;
+            margin-top: 90pt;
+        }
+
+        .pageLayout--1 .textBox--doubleColumnPageD.textBox--grey {
+            padding: 22pt 39pt 22pt 29pt;
+            margin-right: 0;
+            margin-top: 25px;
+        }
+
+        .textBox--singleColumnPageB.textBox--footer {
+            padding: 25pt 33pt 57pt 38pt;
+        }
+
+        .textBox h1 {
+            margin-bottom: 9.2pt;
+            font-size: 18pt;
+            line-height: 1.2em;
+        }
+
+        .textBox h2 {
+            font-size: 14pt;
+            margin-bottom: 6.2pt;
+        }
+
+        .body--singleColumnPageB .textBox--singleColumnPageB.textBox--grey h1 {
+            font-size: 20.8pt;
+        }
+
+        .textBox p,
+        .textBox li,
+        .textBox a {
+            font-size: 11.37pt;
+            font-family: 'Univers LT Pro 55';
+        }
+
+        .textBox p {
+            margin-bottom: 15.2pt;
+            line-height: 1.2em;
+        }
+
+        .textBox ul {
+            margin-bottom: 8pt;
+            padding-left: 12pt;
+            list-style-type: disc;
+        }
+
+        .textBox li {
+            margin-bottom: 4.5pt;
+            line-height: 1.3em;
+        }
+
+        .textBox a {
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .textBox__image {
+            position: absolute;
+            height: 149pt;
+            width: 208pt;
+            top: -90pt;
+            left: 0;
+        }
+
+        .image__container--doubleColumnPageB {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            margin-left: 5pt;
+        }
+
+        .image {
+            position: relative;
+        }
+
+        .image--singleColumnPageB {
+            margin-bottom: 31pt;
+            height: 238pt;
+        }
+
+        .image--doubleColumnPageA,
+        .image--doubleColumnPageC {
+            margin-bottom: 13pt;
+            height: 213pt;
+        }
+
+        .image--doubleColumnPageA {
+            margin-left: 11pt;
+        }
+
+        .image--doubleColumnPageC {
+            margin-left: 10pt;
+        }
+
+        .image--doubleColumnPageB {
+            height: 118pt;
+            width: 118pt;
+        }
+
+        .image__shape {
+            position: absolute;
+            right: 0;
+            bottom: -30pt;
+            height: 119pt;
+            width: 247pt;
+            background-color: var(--dynamic-colour);
+        }
+
+        .textBox:last-child,
+        .image--singleColumnPageB:last-child,
+        .textBox h1:last-child,
+        .textBox p:last-child,
+        .textBox ul:last-child,
+        .textBox li:last-child {
+            margin-bottom: 0pt;
+        }
+
+        .column__container--doubleColumnPageA,
+        .column__container--doubleColumnPageB,
+        .column__container--doubleColumnPageC,
+        .column__container--doubleColumnPageD {
+            display: flex;
+        }
+
+        .column__container--doubleColumnPageA,
+        .column__container--doubleColumnPageB {
+            height: 100%;
+        }
+
+        .column {
+            flex-shrink: 0;
+        }
+
+        .column--left.column--doubleColumnPageA {
+            width: 287pt;
+        }
+
+        .column--left.column--doubleColumnPageB {
+            width: 273pt;
+        }
+
+        .column--left.column--locationMap {
+            margin-right: 30pt;
+            width: 336pt;
+            position: relative;
+        }
+
+        .column--doubleColumnPageA.column--left {
+            margin-right: 21pt;
+        }
+
+        .column--doubleColumnPageB.column--left {
+            margin-right: 19pt;
+        }
+
+        .column--doubleColumnPageC.column--left {
+            width: 288pt;
+            margin-right: 10pt;
+        }
+
+        .column--doubleColumnPageD.column--left {
+            width: 297pt;
+            margin-right: 10pt;
+        }
+
+        .pageLayout--2 .column--doubleColumnPageD.column--left {
+            width: 258pt;
+        }
+
+
+        .column--right.column--doubleColumnPageA {
+            width: 305pt;
+        }
+
+        .column--right.column--doubleColumnPageB {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 320pt;
+        }
+
+        .column--right.column--doubleColumnPageC,
+        .column--right.column--doubleColumnPageD {
+            width: 315pt;
+        }
+
+        .pageLayout--2 .column--right.column--doubleColumnPageD {
+            width: 238pt;
+        }
+
+        .column--right.column--locationMap {
+            width: 247pt;
+            position: relative;
+        }
+
+        .profile {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+        }
+
+        .profile__info {
+            width: 300pt;
+        }
+
+        .profile__text {
+            margin-bottom: 4pt;
+        }
+
+        .profile__text h1 {
+            margin-bottom: 9.2pt;
+            font-size: 18pt;
+            line-height: 1.2em;
+        }
+
+        .profile__text p,
+        .profile__text li,
+        .profile__text a,
+        .social {
+            font-size: 11.37pt;
+            font-family: 'Univers LT Pro 55';
+        }
+
+        .profile__text p,
+        .social {
+            margin-bottom: 3.8pt;
+            line-height: 1.1em;
+        }
+
+        .profile__text ul {
+            margin-bottom: 4pt;
+            padding-left: 12pt;
+            list-style-type: disc;
+        }
+
+        .profile__text li {
+            margin-bottom: 4.8pt;
+            line-height: 1.1em;
+        }
+
+        .profile__text a {
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .profile__text:last-child,
+        .profile__text h1:last-child,
+        .profile__text p:last-child,
+        .profile__text ul:last-child,
+        .profile__text li:last-child,
+        .social:last-child {
+            margin-bottom: 0pt;
+        }
+
+        .profile__image {
+            position: relative;
+            width: 118pt;
+            height: 100%;
+        }
+
+        .social {
+            display: flex;
+            align-items: center;
+            max-height: 20pt;
+        }
+
+        .social__icon {
+            height: 14pt;
+            width: 16pt;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .social--noIcon .social__icon {
+            display: none;
+        }
+
+        .social--twitter .social__icon {
+            background-image: url(https://files.outfit.io/media_library_items/157879/twitter.svg);
+        }
+
+        .social--facebook .social__icon {
+            background-image: url(https://files.outfit.io/media_library_items/157882/facebook%2520%25281%2529.svg);
+        }
+
+        .social--instagram .social__icon {
+            background-image: url(https://files.outfit.io/media_library_items/157881/instagram.svg);
+        }
+
+        .social--linkedin .social__icon {
+            background-image: url(https://files.outfit.io/media_library_items/157880/linkedin.svg);
+        }
+
+        .social__value {
+            margin-top: 3pt;
+            margin-left: 2pt;
+        }
+
+        .social--noIcon .social__value {
+            margin-left: 0pt;
+        }
+
+        .introText--doubleColumnPageC {
+            padding: 0 68pt 0 38pt;
+            margin-bottom: 23pt;
+            font-size: 16pt;
+            line-height: 1.2em;
+        }
+
+        .list {
+            display: flex;
+            height: 150pt;
+            margin-bottom: 28pt;
+            position: relative;
+        }
+
+        .list__image {
+            flex-shrink: 0;
+            width: 246pt;
+            height: 100%;
+            position: relative;
+            background-color: var(--dynamic-colour);
+        }
+
+        .list__image--withImage {
+            background-color: transparent;
+        }
+
+        .list__content {
+            max-height: 150pt;
+            width: 318pt;
+            padding: 0pt 30pt;
+        }
+
+        .list__header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5pt;
+        }
+
+        .list__heading {
+            flex-shrink: 0;
+            width: 180pt;
+        }
+
+        .list__heading h1 {
+            font-size: 18pt;
+            line-height: 1em;
+            margin-bottom: 0.2em;
+        }
+
+        .list__heading p {
+            font-family: 'Univers LT Pro 55';
+            font-size: 10.17pt;
+            line-height: 1.2em;
+        }
+
+        .list__price {
+            align-self: flex-end;
+            font-size: 11.8pt;
+            letter-spacing: 0.8pt;
+            line-height: 1.2em;
+        }
+
+        .list__details {
+            font-family: 'Univers LT Pro 55';
+        }
+
+        .list__details p {
+            font-size: 10.17pt;
+            margin-bottom: 2pt;
+            line-height: 1.3em;
+        }
+
+        .list__details ul {
+            margin-bottom: 4pt;
+            padding-left: 12pt;
+            list-style-type: disc;
+        }
+
+        .list__details li {
+            font-size: 10.17pt;
+            margin-bottom: 2.8pt;
+            line-height: 1.2em;
+        }
+
+        .list__details a {
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .list:last-child,
+        .list__details p:last-child,
+        .list__details ul:last-child,
+        .list__details li:last-child {
+            margin-bottom: 0pt;
+        }
+
+        .table__heading {
+            margin-bottom: 13pt;
+            font-size: 18pt;
+            line-height: 1.2em;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table,
+        .table__cell--body {
+            border: 2pt solid var(--dynamic-colour);
+        }
+
+        .table__row {}
+
+        .table__row:nth-child(odd) {
+            background-color: var(--grey);
+        }
+
+        .table__row.table__row--header {
+            background-color: var(--dynamic-colour);
+        }
+
+
+        .table__cell {
+            width: 33.3%;
+            vertical-align: top;
+        }
+
+        .table__cell--header {
+            font-size: 13.9pt;
+            line-height: 1.1em;
+        }
+
+        .table__cell--body {
+            padding: 6pt 6pt 1pt;
+            font-size: 10.2pt;
+            font-family: 'Univers LT Pro 55';
+            line-height: 1.3em;
+        }
+
+        .table__cell--header {
+            padding: 2pt 4pt 11pt;
+            border-left: 2pt solid var(--black);
+            border-bottom: 2pt solid var(--black);
+        }
+
+        .table__cell--header:first-child {
+            border-left: none;
+        }
+
+        .map__container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 64.32%;
+            background-color: var(--blue);
+        }
+
+        .map {
+            position: absolute;
+            top: 57pt;
+            left: 19pt;
+            height: 452pt;
+            width: 300pt;
+            z-index: 1;
+        }
+
+        .location {
+            position: relative;
+            width: 306pt;
+            padding: 29pt 20pt 37pt 39pt;
+            background-color: var(--dynamic-colour);
+        }
+
+        .location__inner {
+            max-height: 352pt;
+        }
+
+        .location__heading {
+            margin-bottom: 16pt;
+            font-size: 46pt;
+            line-height: 1.2em;
+            color: var(--white);
+        }
+
+        .location__text h1 {
+            font-size: 18pt;
+            line-height: 1.2em;
+        }
+
+        .location__text p,
+        .location__text li,
+        .location__text a {
+            font-family: 'Univers LT Pro 55';
+        }
+
+        .location__text p {
+            font-size: 10.17pt;
+            margin-bottom: 14.8pt;
+            line-height: 1.3em;
+        }
+
+        .location__text ul {
+            margin-bottom: 4pt;
+            padding-left: 12pt;
+            list-style-type: disc;
+        }
+
+        .location__text li {
+            font-size: 10.17pt;
+            margin-bottom: 2.8pt;
+            line-height: 1.2em;
+        }
+
+        .location__text a {
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .location__heading:last-child,
+        .location__text p:last-child,
+        .location__text ul:last-child,
+        .location__text li:last-child {
+            margin-bottom: 0pt;
+        }
+
+        .schedule__container {
+            margin-top: 36pt;
+            margin-left: 29pt;
+            position: relative;
+            z-index: 1;
+        }
+
+        .schedule {
+            width: 179pt;
+            margin-bottom: 4pt;
+        }
+
+        .schedule__title {
+            margin-bottom: 5pt;
+            font-size: 12.6pt;
+            line-height: 1.2em;
+            color: var(--blue);
+        }
+
+        .schedule__table {
+            width: 100%;
+        }
+
+        .schedule__tableRow {
+            display: flex;
+            padding: 0 5pt;
+            background-color: var(--cotton);
+        }
+
+        .schedule__tableRow--heading {
+            background-color: var(--dynamic-colour);
+        }
+
+
+        .schedule__cell {
+            width: 26pt;
+            font-size: 9.6pt;
+            padding: 1pt 0pt;
+            border-bottom: 1pt solid var(--black);
+            line-height: 1.2em;
+        }
+
+        .schedule__table .schedule__tableRow:last-child .schedule__cell {
+            border-bottom: none;
+        }
+
+        .schedule__table--2col .schedule__cell--primary {
+            width: 92pt;
+        }
+
+        .schedule__table--3col .schedule__cell--primary {
+            width: 52pt;
+        }
+
+        .schedule__table--2col .schedule__cell--secondary {
+            width: 78pt;
+            padding-left: 5pt;
+        }
+
+        .schedule__table--3col .schedule__cell--secondary {
+            width: 38pt;
+        }
+
+        .schedule__table--3col .schedule__cell--tertiary {
+            width: 80pt;
+            padding-left: 6pt;
+        }
+
+        .schedule__cell--heading {
+            font-size: 9.8pt;
+            line-height: 1.2em;
+            font-weight: 500;
+            border-bottom: none;
+            color: var(--white);
+        }
+
+        .schedule__cell {
+            text-align: center;
+        }
+
+        .schedule__cell:first-child {
+            text-align: left;
+        }
+
+
+        .footer {
+            position: relative;
+            display: flex;
+        }
+
+        .footer--frontCover,
+        .footer--singleColumnPageA,
+        .footer--doubleColumnPageC,
+        .footer--floorPlanPage,
+        .footer--accommodationList9,
+        .footer--accommodationList11,
+        .footer--tablePage {
+            justify-content: flex-end;
+        }
+
+        .footer--singleColumnPageA,
+        .footer--doubleColumnPageC,
+        .footer--floorPlanPage {
+            align-items: flex-end;
+        }
+
+        .footer--singleColumnPageA {
+            margin-top: 20pt;
+        }
+
+        .footer--singleColumnPageB {
+            padding-right: 157pt;
+        }
+
+        .footer--doubleColumnPageB {
+            height: 196pt;
+            width: 544pt;
+            padding: 30pt 30pt 38pt 38pt;
+            background-color: var(--grey)
+        }
+
+        .footer--doubleColumnPageC {
+            padding-left: 39pt;
+        }
+
+        .footer--doubleColumnPageC.footer--withPhoto {
+            height: 196pt;
+            margin-top: 35pt;
+        }
+
+        .footer--listPage {
+            width: 305.8pt;
+            padding: 27pt 30pt 37pt 38pt;
+            background-color: var(--grey)
+        }
+
+        .footer--tablePage {
+            flex-direction: column;
+        }
+
+        .footer__image--doubleColumnPageC {
+            position: absolute;
+            top: 0;
+            bottom: 48pt;
+            right: 68pt;
+            left: 38.3pt;
+        }
+
+        .footer__text {
+            font-size: 18pt;
+            line-height: 1.2em;
+        }
+
+        .footer__text--tablePage {
+            margin-bottom: 43pt;
+            padding: 0pt 39pt;
+            font-size: 11.27pt;
+            font-family: 'Univers LT Pro 55';
+            line-height: 1.4em;
+        }
+
+        .supporterLogo__container {
+            position: relative;
+            padding: 15pt 24pt 0pt 23pt;
+            font-size: 0;
+        }
+
+        .supporterLogo__container.overflow {
+            font-size: 0.8rem;
+        }
+
+        .supporterLogo {
+            width: 35pt;
+            height: 100%;
+            margin-left: 18pt;
+            object-fit: contain;
+            object-position: right center;
+        }
+
+        .supporterLogo:first-child {
+            margin-left: 0pt;
+        }
+
+        .logo__container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--dynamic-colour);
+        }
+
+        .logo__container--frontCover {
+            flex-shrink: 0;
+            height: 90pt;
+            width: 98pt;
+            padding-right: 8pt;
+        }
+
+        .logo {
+            font-size: 24pt;
+            font-family: "Sheffield Stencil";
+            line-height: 1em;
+            color: var(--black);
+        }
+
+        .logo--frontCover {}
+
+        .tinymce_style--dark {
+            font-family: "Sheffield Stencil";
+            color: var(--black);
+        }
+
+        .pageNumber {
+            position: absolute;
+            right: 39pt;
+            bottom: 36pt;
+            font-size: 9pt;
+            font-family: 'Univers LT Pro 55';
+            line-height: 1.2em;
+        }
+
+        /* Helper classes */
+        .u-hide {
+            display: none;
+        }
+
+        .u-white {
+            color: var(--white);
+        }
+
+        /* Helper class for fixing Reposition tool bug */
+        .reposition-fix {
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .reposition-fix div {
+            top: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .lower-half {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 8.9em;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sect {
+            height: 4.15em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .image-left {
+            position: relative;
+            width: 7.82em;
+            height: 4em;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-left-inner {
+            position: relative;
+            height: 3.5em;
+        }
+
+        .image-right {
+            position: relative;
+            margin-top: 10px;
+            width: 5em;
+            height: 4em;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-right-inner {
+            position: relative;
+            height: 3.5em;
+        }
+
+        .shape.shape--header.shape--imagePageC {
+            padding: 30pt 28pt 10pt;
+        }
+
+        .body-area {
+            padding-top: 0.65em;
+        }
+
+        .horisect {
+            height: 5.56em;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .horisect-one {}
+
+        .horisect-two {}
+
+        .horisect-three {}
+
+        .vertisect-left {
+            width: 8em;
+            padding: 0 0em 0.9em 0.9em;
+        }
+
+        .vertisect-right {
+            width: 8em;
+            padding: 0 0 0 0.7em;
+        }
+
+        .image-inner-left {
+            position: relative;
+            width: 6.25em;
+            height: 4.9em;
+        }
+
+        .image-inner-right {
+            position: relative;
+            width: 5.55em;
+            height: 4.9em;
+        }
+
+        .image-caption-left,
+        .image-caption-right {
+            font-family: 'Univers LT Pro 55';
+            font-size: 0.23em;
+            margin-top: 9px;
+        }
+
+        .greyBox {
+            display: none;
+            position: absolute;
+            background-color: var(--grey);
+        }
+
+        .greyBox--doubleColumnPageD {
+            right: 69pt;
+            top: 0pt;
+            width: 238pt;
+            height: 112%;
+        }
+
+        /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+</head>
+
+<body style="background: white" data-crop="{{show-crop}}"
+    class="colourTheme--{{{SCC_colour-theme--mp}}}{{^SCC_colour-theme--mp}}conference{{/SCC_colour-theme--mp}}">
+    <div class="placeholderMaster" data-opacity="{{ placeholder-opacity }}">
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-1 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-2 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-3 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-4 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-5 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-6 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-7 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-8 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-9 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-10 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-11 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-12 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-13 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-14 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-15 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-16 }}"></div>
+        <div class="placeholderMaster__item" data-bg="{{ placeholder-image-17 }}"></div>
+    </div><!-- end placeholderMaster -->
+
+
+    <div class="page">
+
+        <div class="bleed">
+
+            <div class="container fit fit--frontCover">
+                <div class="body body--frontCover">
+                    <div class="solidShape solidShape--frontCover"></div>
+                    <!--solidShape-->
+                    <div class="featureImage__container featureImage__container--frontCoverTop">
+                        <div class="featureImage featureImage--frontCoverTop">
+                            <div class="reposition-fix">{{{SCC_upper-feature-image--mp}}}</div>
+                        </div>
+                        <!--featureImage--frontCoverTop-->
+                    </div>
+                    <!--featureImage__container--frontCoverTop-->
+                    <div class="text text--frontCover">
+                        <div class="text__inner" data-max-height="dynamic">
+                            {{#SCC_heading--mp}}
+                            <div class="heading sheffield-yes heading--frontCover" data-max-line="2">
+                                {{{SCC_heading--mp}}}</div>
+                            <!--heading--frontCover-->
+                            {{/SCC_heading--mp}}
+                            {{#SCC_subheading--mp}}
+                            <div class="subheading subheading--frontCover" data-max-line="2">{{{SCC_subheading--mp}}}
+                            </div>
+                            <!--subheading--frontCover-->
+                            {{/SCC_subheading--mp}}
+                        </div>
+                        <!--text__inner-->
+                    </div>
+                    <!--text--frontCover-->
+                    <div class="featureImage__container featureImage__container--frontCoverBottom">
+                        <div class="featureImage featureImage--frontCoverBottom">
+                            <div class="reposition-fix">{{{SCC_lower-feature-image--mp}}}</div>
+                        </div>
+                        <!--featureImage--frontCoverBottom-->
+                    </div>
+                    <!--featureImage__container--frontCoverBottom-->
+                </div>
+                <!--body--frontCover-->
+                <div class="footer footer--frontCover">
+                    <div class="supporterLogo__container" data-max-height="120">
+                        {{#collection.SCC_supporter-logos--mp}}
+                        {{#supporter-logo}}
+                        <img class="supporterLogo" src="{{supporter-logo}}"
+                            style="width:{{supporter-logo-width}}{{^supporter-logo-width}}35{{/supporter-logo-width}}pt;" />
+                        <!--supporterLogo-->
+                        {{/supporter-logo}}
+                        {{/collection.SCC_supporter-logos--mp}}
+                    </div>
+                    <!--supporterLogo__container-->
+                    <div class="logo__container logo__container--frontCover">
+                        <div class="logo">Sheffield</div>
+                        <!--logo-->
+                    </div>
+                    <!--logo__container--frontCover-->
+                </div>
+                <!--footer--frontCover-->
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+
+    </div>
+    <!--page-->
+    {{#collection.SCC_pages--mp}}
+    {{#block.SCC_section-divider-a--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--sectionDividerA">
+                <div class="hero hero--sectionDividerA"></div>
+                <!--hero--sectionDividerA-->
+                <div class="body body--sectionDividerA">
+                    <div class="grid grid--sectionDividerA">
+                        <div class="grid__item grid__item--top grid__item--sectionDividerA">
+                            <div class="heading heading--sectionDividerA">Welcome<br />to <span
+                                    class="tinymce_style--dark">Sheffield</span></div>
+                            <!--heading--sectionDividerA-->
+                        </div>
+                        <!--grid__item-->
+                        <div class="grid__item grid__item--sectionDividerA"></div>
+                        <!--grid__item-->
+                        <div class="grid__item grid__item--middle grid__item--sectionDividerA">
+                            <div class="grid__text grid__text--middle">Expect awesome venues, legendary delegate
+                                experiences, great people and brilliant food and drink</div>
+                        </div>
+                        <!--grid__item-->
+                        <div class="grid__item grid__item--sectionDividerA">
+                            <div class="grid__photo grid__photo--big"></div>
+                            <!--grid__photo--big-->
+                        </div>
+                        <!--grid__item-->
+                        <div class="grid__item grid__item--bottom grid__item--sectionDividerA">
+                            <div class="grid__text grid__text--bottom">
+                                <p class="grid__quote">Sheffield: the Northern<br />Capital of Cool</p>
+                                <p>The Sunday Times<br />Going Places</p>
+                            </div>
+                        </div>
+                        <!--grid__item-->
+                        <div class="grid__item">
+                            <div class="grid__photo grid__photo--small"></div>
+                            <!--grid__photo--small-->
+                        </div>
+                        <!--grid__item-->
+                    </div>
+                    <!--grid--sectionDividerA-->
+                </div>
+                <!--body--sectionDividerA-->
+                <div class="pageNumber"></div>
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_section-divider-a--mp}}
+
+    {{#block.SCC_section-divider-b--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--sectionDividerB">
+                <div class="header header--sectionDividerB">
+                    <div class="header__left">
+                        <div class="heading heading--sectionDividerB"><span class="tinymce_style--dark">Sheffield</span>
+                            makes for a smart event move</div>
+                        <!--heading--sectionDividerB-->
+                    </div>
+                    <!--header__left-->
+                    <div class="featureImage featureImage--sectionDividerBTop"></div>
+                    <!--featureImage--sectionDividerBTop-->
+                </div>
+                <!--header--sectionDividerB"-->
+                <div class="body body--sectionDividerB">
+                    <div class="featureImage featureImage--sectionDividerBMiddle"></div>
+                    <!--featureImage--sectionDividerBMiddle-->
+                    <div class="quote quote--sectionDividerB">
+                        <h1>We make big ideas possible</h1>
+                        <p>Definitely one of the easiest, and most pleasant cities we have found for our international
+                            conference</p>
+                        <h2>Rhonda Baker,<br />NACADA</h2>
+                    </div>
+                    <!--quote-->
+                </div>
+                <!--body--sectionDividerB-->
+            </div>
+            <!--container fit-->
+            <div class="pageNumber"></div>
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_section-divider-b--mp}}
+
+    {{#block.SCC_single-column-page-a--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--singleColumnPageA">
+                <div class="header header--singleColumnPageA">
+                    <div class="shape shape--header shape--singleColumnPageA">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--singleColumnPageA-->
+                <div class="body body--singleColumnPageA">
+                    <div class="body__inner" data-max-height="dynamic">
+                        {{#collection.SCC_content--mp}}
+                        {{#block.SCC_full-width-text-box--mp}}
+                        {{#text-mp}}
+                        <div class="textBox textBox--singleColumnPageA u-heading-patch">{{{text-mp}}}</div>
+                        <!--textBox-->
+                        {{/text-mp}}
+                        {{/block.SCC_full-width-text-box--mp}}
+                        {{#block.SCC_full-width--grey-text-box--mp}}
+                        {{#text-mp}}
+                        <div class="textBox textBox--grey textBox--singleColumnPageA u-heading-patch">{{{text-mp}}}
+                        </div>
+                        <!--textBox-->
+                        {{/text-mp}}
+                        {{/block.SCC_full-width--grey-text-box--mp}}
+                        {{#block.SCC_signoff--mp}}
+                        <div class="signoff__textbox signoff__textbox--singleColumnPageA">
+                            Kind Regards,<br>
+                            {{#signoff-text-mp}}
+                            {{{signoff-text-mp}}}<br>
+                            {{{team.name}}}
+                            {{/signoff-text-mp}}
+                        </div>
+                        <!--signoff-textbox-->
+                        {{/block.SCC_signoff--mp}}
+
+
+                        {{/collection.SCC_content--mp}}
+                    </div>
+                    <!--body__inner-->
+                </div>
+                <!--body--singleColumnPageA-->
+                <div class="footer footer--singleColumnPageA">
+                    <div class="shape shape--footer shape--singleColumnPageA"></div>
+                    <!--shape--footer-->
+                </div>
+                <!--footer--singleColumnPageA-->
+            </div>
+            <!--container fit-->
+            <div class="pageNumber u-white"></div>
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_single-column-page-a--mp}}
+
+    {{#block.SCC_single-column-page-b--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--singleColumnPageB">
+                <div class="header header--singleColumnPageB">
+                    <div class="shape shape--header shape--singleColumnPageB">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--singleColumnPageB-->
+                <div class="body body--singleColumnPageB">
+                    <div class="body__inner" data-max-height="dynamic">
+                        {{#collection.SCC_content--mp}}
+                        {{#block.SCC_full-width-text-box--mp}}
+                        {{#text-mp}}
+                        <div class="textBox textBox--singleColumnPageB u-heading-patch">{{{text-mp}}}</div>
+                        <!--textBox-->
+                        {{/text-mp}}
+                        {{/block.SCC_full-width-text-box--mp}}
+                        {{#block.SCC_full-width--grey-text-box--mp}}
+                        {{#text-mp}}
+                        <div class="textBox textBox--grey textBox--singleColumnPageB u-heading-patch">{{{text-mp}}}
+                        </div>
+                        <!--textBox-->
+                        {{/text-mp}}
+                        {{/block.SCC_full-width--grey-text-box--mp}}
+                        {{#block.SCC_image--mp}}
+                        {{#image-mp}}
+                        <div class="image image--singleColumnPageB">
+                            <div class="reposition-fix">{{{image-mp}}}</div>
+                        </div>
+                        <!--textBox-->
+                        {{/image-mp}}
+                        {{/block.SCC_image--mp}}
+                        {{/collection.SCC_content--mp}}
+                    </div>
+                    <!--body__inner-->
+                </div>
+                <!--body--singleColumnPageB-->
+                {{#footer-text-mp}}
+                <div class="footer footer--singleColumnPageB">
+                    <div class="textBox textBox--grey textBox--singleColumnPageB textBox--footer">
+                        <div class="textBox__inner u-heading-patch" data-max-height="160">{{{footer-text-mp}}}</div>
+                        <!--textBox__inner-->
+                    </div>
+                    <!--footer--textBox-->
+                </div>
+                <!--footer--singleColumnPageB-->
+                {{/footer-text-mp}}
+            </div>
+            <!--container fit-->
+            <div class="pageNumber"></div>
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_single-column-page-b--mp}}
+
+    {{#block.SCC_double-column-page-a--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--doubleColumnPageA">
+                <div class="header header--doubleColumnPageA {{#hero-image--mp}}header--withHero{{/hero-image--mp}}">
+                    <div class="hero hero--doubleColumnPageA">
+                        <div class="reposition-fix">{{{hero-image--mp}}}</div>
+                    </div>
+                    <!--hero--doubleColumnPageA-->
+                    <div class="shape shape--header shape--doubleColumnPageA">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--doubleColumnPageA-->
+                <div class="body body--doubleColumnPageA">
+                    <div class="column__container column__container--doubleColumnPageA">
+                        <div class="column column--left column--doubleColumnPageA" data-max-height="dynamic">
+                            {{#collection.SCC_left-column--mp}}
+                            {{#block.SCC_text-box--mp}}
+                            {{#text-mp}}
+                            <div class="textBox textBox--doubleColumnPageA u-heading-patch">{{{text-mp}}}</div>
+                            <!--textBox-->
+                            {{/text-mp}}
+                            {{/block.SCC_text-box--mp}}
+                            {{#block.SCC_grey-text-box--mp}}
+                            {{#text-mp}}
+                            <div class="textBox textBox--grey textBox--doubleColumnPageA u-heading-patch">{{{text-mp}}}
+                            </div>
+                            <!--textBox-->
+                            {{/text-mp}}
+                            {{/block.SCC_grey-text-box--mp}}
+                            {{#block.SCC_image--mp}}
+                            {{#image-mp}}
+                            <div class="image image--doubleColumnPageA">
+                                <div class="reposition-fix">{{{image-mp}}}</div>
+                            </div>
+                            <!--textBox-->
+                            {{/image-mp}}
+                            {{/block.SCC_image--mp}}
+                            {{/collection.SCC_left-column--mp}}
+                        </div>
+                        <!--column--left-->
+
+                        <div class="column column--right column--doubleColumnPageA" data-max-height="dynamic">
+                            {{#collection.SCC_rigth-column--mp}}
+                            {{#block.SCC_text-box--mp}}
+                            {{#text-mp}}
+                            <div class="textBox textBox--doubleColumnPageA u-heading-patch">{{{text-mp}}}</div>
+                            <!--textBox-->
+                            {{/text-mp}}
+                            {{/block.SCC_text-box--mp}}
+                            {{#block.SCC_grey-text-box--mp}}
+                            {{#text-mp}}
+                            <div class="textBox textBox--grey textBox--doubleColumnPageA u-heading-patch">{{{text-mp}}}
+                            </div>
+                            <!--textBox-->
+                            {{/text-mp}}
+                            {{/block.SCC_grey-text-box--mp}}
+                            {{#block.SCC_image--mp}}
+                            {{#image-mp}}
+                            <div class="image image--doubleColumnPageA">
+                                <div class="reposition-fix">{{{image-mp}}}</div>
+                            </div>
+                            <!--textBox-->
+                            {{/image-mp}}
+                            {{/block.SCC_image--mp}}
+                            {{/collection.SCC_rigth-column--mp}}
+                        </div>
+                        <!--column--right-->
+                    </div>
+                    <!--column__container--doubleColumnPageA-->
+                </div>
+                <!--body--doubleColumnPageA-->
+            </div>
+            <!--container fit-->
+            <div class="pageNumber"></div>
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_double-column-page-a--mp}}
+
+    {{#block.SCC_double-column-page-b--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--doubleColumnPageB">
+                <div class="header header--doubleColumnPageB">
+                    <div
+                        class="shape shape--header shape--doubleColumnPageB {{#intro-paragraph}}shape--withIntro{{/intro-paragraph}}">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                        <div class="header__logo header__logo--doubleColumnPageB"></div>
+                        <!--header__logo-->
+                    </div>
+                    <!--shape--header-->
+                    {{#intro-paragraph}}
+                    <div class="header__info header__info--doubleColumnPageB">
+                        <div class="header__infoInner header__infoInner--doubleColumnPageB" data-max-line="4">
+                            {{{intro-paragraph}}}</div>
+                        <!--header__infoInner-->
+                    </div>
+                    <!--header__info-->
+                    {{/intro-paragraph}}
+                </div>
+                <!--header--doubleColumnPageB-->
+                <div class="body body--doubleColumnPageB">
+                    <div class="column__container column__container--doubleColumnPageB">
+                        <div class="column column--left column--doubleColumnPageB">
+                            <div class="column__inner" data-max-height="dynamic">
+                                {{#collection.SCC_left-column--mp}}
+                                {{#block.SCC_text-box--mp}}
+                                {{#text-mp}}
+                                <div class="textBox textBox--doubleColumnPageB u-heading-patch">{{{text-mp}}}</div>
+                                <!--textBox-->
+                                {{/text-mp}}
+                                {{/block.SCC_text-box--mp}}
+                                {{#block.SCC_grey-text-box--mp}}
+                                {{#text-mp}}
+                                <div class="textBox textBox--grey textBox--doubleColumnPageB u-heading-patch">
+                                    {{{text-mp}}}</div>
+                                <!--textBox-->
+                                {{/text-mp}}
+                                {{/block.SCC_grey-text-box--mp}}
+                                {{/collection.SCC_left-column--mp}}
+                            </div>
+                            <!--column__inner-->
+                        </div>
+                        <!--column--left-->
+
+                        <div class="column column--right column--doubleColumnPageB">
+                            <div class="textBox__container textBox__container--doubleColumnPageB"
+                                data-max-height="dynamic">
+                                {{#collection.SCC_rigth-column--mp}}
+                                {{#block.SCC_text-box--mp}}
+                                {{#text-mp}}
+                                <div class="textBox textBox--doubleColumnPageB u-heading-patch">{{{text-mp}}}</div>
+                                <!--textBox-->
+                                {{/text-mp}}
+                                {{/block.SCC_text-box--mp}}
+                                {{#block.SCC_grey-text-box--mp}}
+                                {{#text-mp}}
+                                <div class="textBox textBox--grey textBox--doubleColumnPageB u-heading-patch">
+                                    {{{text-mp}}}</div>
+                                <!--textBox-->
+                                {{/text-mp}}
+                                {{/block.SCC_grey-text-box--mp}}
+                                {{/collection.SCC_rigth-column--mp}}
+                            </div>
+                            <!--textBox__container-->
+                            {{#footer-photo-2}}
+                            <div class="image__container image__container--doubleColumnPageB js-subtrahend">
+                                <div class="image__shape"></div>
+                                <!--image__shape-->
+                                <div class="image image--doubleColumnPageB">
+                                    <div class="reposition-fix">{{{footer-photo-2}}}</div>
+                                </div>
+                                <!--image-->
+                            </div>
+                            <!--image__container-->
+                            {{/footer-photo-2}}
+                        </div>
+                        <!--column--right-->
+                    </div>
+                    <!--column__container--doubleColumnPageB-->
+                </div>
+                <!--body--doubleColumnPageB-->
+                <div
+                    class="footer footer--doubleColumnPageB {{^footer-text--mp}}u{{/footer-text--mp}}{{^collection.SCC_footer-social-media--mp}}-{{/collection.SCC_footer-social-media--mp}}{{^footer-photo-1}}hide{{/footer-photo-1}}">
+                    <div class="profile">
+                        <div class="profile__info" data-max-height="170">
+                            {{#footer-text--mp}}
+                            <div class="profile__text u-heading-patch">{{{footer-text--mp}}}</div>
+                            <!--profile__text-->
+                            {{/footer-text--mp}}
+                            {{#collection.SCC_footer-social-media--mp}}
+                            {{#block.SCC_social-media-handle--mp}}
+                            <div class="social social--{{{social-media-icon}}}{{^social-media-icon}}noIcon{{/social-media-icon}}"
+                                data-max-height="css">
+                                <div class="social__icon"></div>
+                                <!--social__icon-->
+                                <div class="social__value">{{{social-media-address}}}</div>
+                                <!--social__icon-->
+                            </div>
+                            <!--social-->
+                            {{/block.SCC_social-media-handle--mp}}
+                            {{/collection.SCC_footer-social-media--mp}}
+                        </div>
+                        <!--profile__info-->
+                        <div class="profile__image">
+                            <div class="reposition-fix">{{{footer-photo-1}}}</div>
+                        </div>
+                        <!--profile__info-->
+                    </div>
+                    <!--profile-->
+                </div>
+                <!--footer--doubleColumnPageB-->
+            </div>
+            <!--container fit-->
+            <div
+                class="pageNumber {{^footer-text--mp}}u{{/footer-text--mp}}{{^collection.SCC_footer-social-media--mp}}-{{/collection.SCC_footer-social-media--mp}}{{^footer-photo-1}}white{{/footer-photo-1}}">
+            </div>
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_double-column-page-b--mp}}
+
+    {{#block.SCC_double-column-page-c--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--doubleColumnPageC">
+                <div class="header header--doubleColumnPageC">
+                    <div class="shape shape--header shape--doubleColumnPageC ">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--doubleColumnPageC-->
+                <div class="body body--doubleColumnPageC">
+                    <div class="body__inner" data-max-height="dynamic">
+                        {{#intro-text}}
+                        <div class="introText introText--doubleColumnPageC" data-max-line="4">{{{intro-text}}}</div>
+                        <!--introText-->
+                        {{/intro-text}}
+                        <div class="column__container column__container--doubleColumnPageC">
+                            <div class="column column--left column--doubleColumnPageC">
+                                {{#collection.SCC_left-column--mp}}
+                                {{#block.SCC_text-box--mp}}
+                                {{#text-mp}}
+                                <div class="textBox textBox--doubleColumnPageC u-heading-patch">{{{text-mp}}}</div>
+                                <!--textBox-->
+                                {{/text-mp}}
+                                {{/block.SCC_text-box--mp}}
+                                {{#block.SCC_grey-text-box--mp}}
+                                {{#text-mp}}
+                                <div class="textBox textBox--grey textBox--doubleColumnPageC u-heading-patch">
+                                    {{{text-mp}}}</div>
+                                <!--textBox-->
+                                {{/text-mp}}
+                                {{/block.SCC_grey-text-box--mp}}
+                                {{#block.SCC_image--mp}}
+                                {{#image-mp}}
+                                <div class="image image--doubleColumnPageC">
+                                    <div class="reposition-fix">{{{image-mp}}}</div>
+                                </div>
+                                <!--textBox-->
+                                {{/image-mp}}
+                                {{/block.SCC_image--mp}}
+
+                                {{#block.SCC_signoff--mp}}
+                                <div class="signoff__textbox signoff__textbox--doubleColumnPageC">
+                                    Kind Regards,<br>
+                                    {{#signoff-text-mp}}
+                                    {{{signoff-text-mp}}}<br>
+                                    {{{team.name}}}
+                                    {{/signoff-text-mp}}
+                                </div>
+                                <!--signoff-textbox-->
+                                {{/block.SCC_signoff--mp}}
+
+                                {{/collection.SCC_left-column--mp}}
+                            </div>
+                            <!--column--left-->
+
+                            <div class="column column--right column--doubleColumnPageC">
+                                {{#collection.SCC_rigth-column--mp}}
+                                {{#block.SCC_text-box--mp}}
+                                {{#text-mp}}
+                                <div class="textBox textBox--doubleColumnPageC u-heading-patch">{{{text-mp}}}</div>
+                                <!--textBox-->
+                                {{/text-mp}}
+                                {{/block.SCC_text-box--mp}}
+                                {{#block.SCC_grey-text-box--mp}}
+                                {{#text-mp}}
+                                <div class="textBox textBox--grey textBox--doubleColumnPageC u-heading-patch">
+                                    {{{text-mp}}}</div>
+                                <!--textBox-->
+                                {{/text-mp}}
+                                {{/block.SCC_grey-text-box--mp}}
+                                {{#block.SCC_image--mp}}
+                                {{#image-mp}}
+                                <div class="image image--doubleColumnPageC">
+                                    <div class="reposition-fix">{{{image-mp}}}</div>
+                                </div>
+                                <!--textBox-->
+                                {{/image-mp}}
+                                {{/block.SCC_image--mp}}
+
+                                {{#block.SCC_signoff--mp}}
+                                <div class="signoff__textbox signoff__textbox--doubleColumnPageC">
+                                    Kind Regards,<br>
+                                    {{#signoff-text-mp}}
+                                    {{{signoff-text-mp}}}<br>
+                                    {{{team.name}}}
+                                    {{/signoff-text-mp}}
+                                </div>
+                                <!--signoff-textbox-->
+                                {{/block.SCC_signoff--mp}}
+
+
+                                {{/collection.SCC_rigth-column--mp}}
+                            </div>
+                            <!--column--right-->
+                        </div>
+                        <!--column__container--doubleColumnPageC-->
+                    </div>
+                    <!--body__inner-->
+                </div>
+                <!--body--doubleColumnPageC-->
+                <div class="footer footer--doubleColumnPageC {{#footer-image}}footer--withPhoto{{/footer-image}}">
+                    <div class="footer__image footer__image--doubleColumnPageC">
+                        <div class="reposition-fix">{{{footer-image}}}</div>
+                    </div>
+                    <!--footer__image-->
+                    <div class="shape shape--footer shape--doubleColumnPageC"></div>
+                    <!--shape--footer-->
+                </div>
+                <!--footer--doubleColumnPageC-->
+                <div class="pageNumber u-white"></div>
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_double-column-page-c--mp}}
+
+    {{#block.SCC_double-column-page-d--mp}}
+    <div class="page js-page-counter pageLayout--{{{page-layout-mp}}}{{^page-layout-mp}}1{{/page-layout-mp}}">
+
+        <div class="bleed">
+
+            <div class="container fit fit--doubleColumnPageD">
+                <div
+                    class="header header--doubleColumnPageD {{#hero-image--mp}}header--withHero{{/hero-image--mp}} {{#intro-paragraph}}header--withIntro{{/intro-paragraph}}">
+                    <div class="hero hero--doubleColumnPageD">
+                        <div class="reposition-fix">{{{hero-image--mp}}}</div>
+                    </div>
+                    <!--hero--doubleColumnPageA-->
+                    <div class="shape shape--header shape--doubleColumnPageD">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                    </div>
+                    <!--shape--header-->
+                    {{#intro-paragraph}}
+                    <div class="header__info header__info--doubleColumnPageD">
+                        <div class="header__infoInner header__infoInner--doubleColumnPageD" data-max-line="4">
+                            {{{intro-paragraph}}}</div>
+                        <!--header__infoInner-->
+                    </div>
+                    <!--header__info-->
+                    {{/intro-paragraph}}
+                </div>
+                <!--header--doubleColumnPageD-->
+                <div class="body body--doubleColumnPageD">
+                    <div class="greyBox greyBox--doubleColumnPageD"></div>
+                    <!--greyBox-->
+                    <div class="column__container column__container--doubleColumnPageD" data-max-height="dynamic">
+                        <div class="column column--left column--doubleColumnPageD">
+                            {{#collection.SCC_left-column--mp}}
+                            {{#block.SCC_text-box--mp}}
+                            {{#text-2-mp}}
+                            <div class="textBox textBox--doubleColumnPageD u-heading-patch">{{{text-2-mp}}}</div>
+                            <!--textBox-->
+                            {{/text-2-mp}}
+                            {{/block.SCC_text-box--mp}}
+                            {{#block.SCC_grey-text-box--mp}}
+                            {{#text-2-mp}}
+                            <div
+                                class="textBox textBox--grey textBox--doubleColumnPageD {{#image-2--mp}}textBox--withImage{{/image-2--mp}}">
+                                <div class="textBox__image">
+                                    <div class="reposition-fix">{{{image-2--mp}}}</div>
+                                </div>
+                                <!--textBox__image-->
+                                <div class="textBox__text u-heading-patch">{{{text-2-mp}}}</div>
+                                <!--textBox__text-->
+                            </div>
+                            <!--textBox-->
+                            {{/text-2-mp}}
+                            {{/block.SCC_grey-text-box--mp}}
+                            {{/collection.SCC_left-column--mp}}
+                        </div>
+                        <!--column--left-->
+
+                        <div class="column column--right column--doubleColumnPageD">
+                            {{#collection.SCC_rigth-column--mp}}
+                            {{#block.SCC_text-box--mp}}
+                            {{#text-2-mp}}
+                            <div class="textBox textBox--doubleColumnPageD u-heading-patch">{{{text-2-mp}}}</div>
+                            <!--textBox-->
+                            {{/text-2-mp}}
+                            {{/block.SCC_text-box--mp}}
+                            {{#block.SCC_grey-text-box--mp}}
+                            {{#text-2-mp}}
+                            <div
+                                class="textBox textBox--grey textBox--doubleColumnPageD {{#image-2--mp}}textBox--withImage{{/image-2--mp}}">
+                                <div class="textBox__image">
+                                    <div class="reposition-fix">{{{image-2--mp}}}</div>
+                                </div>
+                                <!--textBox__image-->
+                                <div class="textBox__text u-heading-patch">{{{text-2-mp}}}</div>
+                                <!--textBox__text-->
+                            </div>
+                            <!--textBox-->
+                            {{/text-2-mp}}
+                            {{/block.SCC_grey-text-box--mp}}
+                            {{/collection.SCC_rigth-column--mp}}
+                        </div>
+                        <!--column--right-->
+                    </div>
+                    <!--column__container--doubleColumnPageD-->
+                </div>
+                <!--body--doubleColumnPageD-->
+                <div class="pageNumber"></div>
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_double-column-page-d--mp}}
+
+    {{#block.SCC_list-page--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--listPage">
+                <div class="header header--listPage">
+                    <div class="shape shape--header shape--listPage ">
+                        {{#page-title}}
+                        <div class="pageTitle pageTitle--listPage" data-max-line="1">{{{page-title}}}</div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--listPage-->
+                <div class="body body--listPage">
+                    <div class="list__container" data-max-height="dynamic">
+                        {{#collection.SCC_listings--mp}}
+                        {{#block.SCC_listing--mp}}
+                        <div class="list">
+                            <div class="list__image list__image--{{#listing-photo}}withImage{{/listing-photo}}">
+                                <div class="reposition-fix">{{{listing-photo}}}</div>
+                            </div>
+                            <!--list__image-->
+                            <div class="list__content" data-max-height="css">
+                                <div class="list__header u-heading-patch">
+                                    {{#listing-header}}
+                                    <div class="list__heading u-heading-patch">{{{listing-header}}}</div>
+                                    <!--list__heading-->
+                                    <div class="list__price" data-max-line="1">{{{listing-price}}}</div>
+                                    <!--list__price-->
+                                    {{/listing-header}}
+                                </div>
+                                <!--header-->
+                                {{#listing-details}}
+                                <div class="list__body">
+                                    <div class="list__details u-heading-patch">{{{listing-details}}}</div>
+                                    <!--list__details-->
+                                </div>
+                                <!--list__body-->
+                                {{/listing-details}}
+                            </div>
+                            <!--list__image-->
+                        </div>
+                        <!--list-->
+                        {{/block.SCC_listing--mp}}
+                        {{/collection.SCC_listings--mp}}
+                    </div>
+                    <!--list__container-->
+                </div>
+                <!--body--listPage-->
+                {{#footer-text-mp}}
+                <div class="footer footer--listPage">
+                    <div class="footer__text footer__text--listPage" data-max-line="4">{{{footer-text-mp}}}</div>
+                    <!--footer__text-->
+                </div>
+                <!--footer--listPage-->
+                {{/footer-text-mp}}
+                <div class="pageNumber"></div>
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_list-page--mp}}
+
+    {{#block.SCC_static-letter-page--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--staticLetterPage">
+                <div class="backgroundImage backgroundImage--staticLetterPage">
+                    <div class="reposition-fix">{{{letter-image}}}</div>
+                </div>
+                <!--backgroundImage-->
+                <div class="pageNumber"></div>
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_static-letter-page--mp}}
+
+    {{#block.SCC_floor-plan-page--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--floorPlanPage">
+                <div class="header header--floorPlanPage">
+                    <div class="shape shape--header shape--floorPlanPage">
+                        {{#page-title}}
+                        <div class="pageTitle pageTitle--floorPlanPage" data-max-line="1">{{{page-title}}}</div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                        {{#page-subheading}}
+                        <div class="pageSubheading pageSubheading--floorPlanPage" data-max-line="1">
+                            {{{page-subheading}}}</div>
+                        <!--pageSubheading-->
+                        {{/page-subheading}}
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--floorPlanPage-->
+                <div class="body body--floorPlanPage">
+                    <div class="hero hero--floorPlanPage">
+                        <div class="reposition-fix">{{{floot-map-plan}}}</div>
+                    </div>
+                    <!--hero--floorPlanPage-->
+                </div>
+                <!--body--floorPlanPage-->
+                <div class="footer footer--floorPlanPage">
+                    <div class="shape shape--footer shape--floorPlanPage"></div>
+                    <!--shape--footer-->
+                </div>
+                <!--footer--floorPlanPage-->
+                <div class="pageNumber u-white"></div>
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_floor-plan-page--mp}}
+
+    {{#block.SCC_accommodation-list-9-listings--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--accommodationList9 js-gridItemCounter-container" data-item-counter-limit="6">
+                <div class="header header--accommodationList9">
+                    <div class="shape shape--header shape--accommodationList9">
+                        {{#page-title}}
+                        <div class="pageTitle pageTitle--accommodationList9" data-max-line="1">{{{page-title}}}</div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                    </div>
+                    <!--shape--header-->
+                    <div class="header__info header__info--accommodationList9 u-heading-patch" data-max-height="css">
+                        {{{intro-text}}} </div>
+                    <!--header__info-->
+                </div>
+                <!--header--accommodationList9-->
+                <div class="body body--accommodationList9">
+                    <div class="body__inner" data-max-height="dynamic">
+                        <div class="grid grid--accommodationList9 js-gridItemCounter-grid">
+                            {{#collection.SCC_listings-1--mp}}
+                            {{#block.SCC_listing-1--mp}}
+                            <div class="grid__item grid__item--accommodationList9 js-gridItemCounter-item">
+                                <div
+                                    class="grid__image grid__image--accommodationList9 grid__image--{{^listing-image}}noImage{{/listing-image}}">
+                                    <div class="reposition-fix">{{{listing-image}}}</div>
+                                </div>
+                                <!--grid__image--accommodationList9-->
+                                <div class="grid__content grid__content--accommodationList9">
+                                    {{#listing-title}}
+                                    <div class="grid__title grid__title--accommodationList9" data-max-line="1">
+                                        {{{listing-title}}}</div>
+                                    <!--grid__title--accommodationList9-->
+                                    {{/listing-title}}
+                                    {{#listing-description}}
+                                    <div class="grid__description grid__description--accommodationList9"
+                                        data-max-line="4">{{{listing-description}}}</div>
+                                    <!--grid__descripton--accommodationList9-->
+                                    {{/listing-description}}
+                                </div>
+                                <!--grid__content-->
+                            </div>
+                            <!--grid__item-->
+                            {{/block.SCC_listing-1--mp}}
+                            {{/collection.SCC_listings-1--mp}}
+                        </div>
+                        <!--grid-->
+                    </div>
+                    <!--body__inner-->
+                </div>
+                <!--body--accommodationList9-->
+                <div class="footer footer--accommodationList9 js-gridItemCounter-footer">
+                    <div class="shape shape--footer shape--accommodationList9"></div>
+                    <!--shape--footer-->
+                </div>
+                <!--footer--accommodationList9-->
+                <div class="pageNumber"></div>
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_accommodation-list-9-listings--mp}}
+
+    {{#block.SCC_accommodation-list-11-listings--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--accommodationList11 js-gridItemCounter-container"
+                data-item-counter-limit="9">
+                <div class="header header--accommodationList11">
+                    <div class="shape shape--header shape--accommodationList11">
+                        <div class="pageTitle pageTitle--accommodationList11" data-max-line="1">{{{page-title}}}</div>
+                        <!--pageTitle-->
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--accommodationList11-->
+                <div class="body body--accommodationList11">
+                    <div class="body__inner" data-max-height="dynamic">
+                        <div class="grid grid--accommodationList11 js-gridItemCounter-grid">
+                            {{#intro-text}}
+                            <div class="grid__item grid__item--accommodationList11 grid__item--introText js-gridItemCounter-item"
+                                data-max-height="200">
+                                <div class="box">{{{intro-text}}}</div>
+                                <!--box-->
+                            </div>
+                            <!--grid__item-->
+                            {{/intro-text}}
+                            {{#collection.SCC_listings-2--mp}}
+                            {{#block.SCC_listing-2--mp}}
+                            <div class="grid__item grid__item--accommodationList11 js-gridItemCounter-item">
+                                <div
+                                    class="grid__image grid__image--accommodationList11 grid__image--{{^listing-image}}noImage{{/listing-image}}">
+                                    <div class="reposition-fix">{{{listing-image}}}</div>
+                                </div>
+                                <!--grid__image--accommodationList11-->
+                                <div class="grid__content grid__content--accommodationList11">
+                                    {{#listing-title}}
+                                    <div class="grid__title grid__title--accommodationList11" data-max-line="1">
+                                        {{{listing-title}}}</div>
+                                    <!--grid__title--accommodationList11-->
+                                    {{/listing-title}}
+                                    {{#listing-rating}}
+                                    <div class="grid__rating grid__rating--accommodationList11" data-max-line="1">
+                                        {{{listing-rating}}}</div>
+                                    <!--grid__title--accommodationList11-->
+                                    {{/listing-rating}}
+                                    {{#listing-description}}
+                                    <div class="grid__description grid__description--accommodationList11"
+                                        data-max-line="2">{{{listing-description}}}</div>
+                                    <!--grid__descripton--accommodationList11-->
+                                    {{/listing-description}}
+                                </div>
+                                <!--grid__content-->
+                            </div>
+                            <!--grid__item-->
+                            {{/block.SCC_listing-2--mp}}
+                            {{/collection.SCC_listings-2--mp}}
+                        </div>
+                        <!--grid-->
+                    </div>
+                    <!--body__inner-->
+                </div>
+                <!--body--accommodationList11-->
+                <div class="footer footer--accommodationList11 js-gridItemCounter-footer">
+                    <div class="shape shape--footer shape--accommodationList11"></div>
+                    <!--shape--footer-->
+                </div>
+                <!--footer--accommodationList11-->
+                <div class="pageNumber"></div>
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_accommodation-list-11-listings--mp}}
+
+    {{#block.SCC_table-page--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--tablePage">
+                <div class="header header--tablePage">
+                    <div class="shape shape--header shape--tablePage">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--tablePage-->
+                <div class="body body--tablePage">
+                    <div class="body__inner" data-max-height="dynamic">
+                        {{#table-heading}}
+                        <div class="table__heading" data-max-line="2">{{{table-heading}}}</div>
+                        <!--table__heading-->
+                        <table class="table">
+                            {{/table-heading}}
+                            <tr class="table__row table__row--header">
+                                <th class="table__cell table__cell--header">{{{column-heading-left}}}</th>
+                                <!--table__cell-->
+                                <th class="table__cell table__cell--header">{{{column-heading-center}}}</th>
+                                <!--table__cell-->
+                                <th class="table__cell table__cell--header">{{{column-heading-right}}}</th>
+                                <!--table__cell-->
+                            </tr>
+                            <!--table__row--header-->
+                            {{#spreadsheet.SCC_table-page--mp}}
+                            <tr class="table__row table__row--body">
+                                <td class="table__cell table__cell--body">
+                                    <div class="js-customRichText-src">{{{column-1}}}</div>
+                                </td>
+                                <!--table__cell-->
+                                <td class="table__cell table__cell--body">
+                                    <div class="js-customRichText-src">{{{column-2}}}</div>
+                                </td>
+                                <!--table__cell-->
+                                <td class="table__cell table__cell--body">
+                                    <div class="js-customRichText-src">{{{column-3}}}</div>
+                                </td>
+                                <!--table__cell-->
+                            </tr>
+                            <!--table__row--body-->
+                            {{/spreadsheet.SCC_table-page--mp}}
+                        </table>
+                        <!--table-->
+                    </div>
+                    <!--body__inner-->
+                </div>
+                <!--body--tablePage-->
+                <div class="footer footer--tablePage js-footer">
+                    {{#footer-text}}
+                    <div class="footer__text footer__text--tablePage" data-max-line="5">{{{footer-text}}}</div>
+                    <!--footer__text-->
+                    {{/footer-text}}
+                    <div class="shape shape--footer shape--tablePage"></div>
+                    <!--shape--tablePage-->
+                </div>
+                <!--footer--tablePage-->
+                <div class="pageNumber u-white"></div>
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_table-page--mp}}
+
+    {{#block.SCC_location-map-page--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--locationMap">
+                <div class="column column--left column--locationMap">
+                    <div class="map__container">
+                        <img class="map" src="https://files.outfit.io/media_library_items/157229/MS-map2.svg">
+                        <!--map-->
+                    </div>
+                    <!--map__container-->
+                    <div class="location u-heading-patch">
+                        <div class="location__inner" data-max-height="css">
+                            {{#location-heading}}
+                            <div class="location__heading">{{{location-heading}}}</div>
+                            <!--location__heading-->
+                            {{/location-heading}}
+                            {{#top-left-text-box}}
+                            <div class="location__text">{{{top-left-text-box}}}</div>
+                            <!--location__text-->
+                            {{/top-left-text-box}}
+                        </div>
+                        <!--location__inner-->
+                    </div>
+                    <!--location-->
+                </div>
+                <!--column--left-->
+                <div class="column column--right column--locationMap">
+                    <div class="schedule__container">
+                        <div class="schedule">
+                            <div class="schedule__title">Distances by Road (miles)</div>
+                            <!--schedule__title-->
+                            <div class="schedule__table schedule__table--3col">
+                                <div class="schedule__tableRow schedule__tableRow--heading">
+                                    <div class="schedule__cell schedule__cell--primary schedule__cell--heading"></div>
+                                    <!--schedule__cell--heading-->
+                                    <div class="schedule__cell schedule__cell--secondary schedule__cell--heading">
+                                        Sheffield</div>
+                                    <!--schedule__cell--heading-->
+                                    <div class="schedule__cell schedule__cell--tertiary schedule__cell--heading">Drive
+                                        Time</div>
+                                    <!--schedule__cell--heading-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">London</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">165</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--tertiary">3 hrs</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Birmingham</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">90</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--tertiary">1 hr 48 mins</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Manchester</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">44</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--tertiary">1 hr 13 mins</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Leeds</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">33</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--tertiary">50 mins</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Edinburgh</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">250</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--tertiary">5 hrs</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                            </div>
+                            <!--schedule__table-->
+                        </div>
+                        <!--schedule-->
+                        <div class="schedule">
+                            <div class="schedule__title">Distances by Rail (hours)</div>
+                            <!--schedule__title-->
+                            <div class="schedule__table schedule__table--2col">
+                                <div class="schedule__tableRow schedule__tableRow--heading">
+                                    <div class="schedule__cell schedule__cell--primary schedule__cell--heading"></div>
+                                    <!--schedule__cell--heading-->
+                                    <div class="schedule__cell schedule__cell--secondary schedule__cell--heading">
+                                        Sheffield</div>
+                                    <!--schedule__cell--heading-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">London</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">2:01</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Birmingham</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">1:03</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Manchester</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">0:51</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Edinburgh</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">3:26</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Manchester Airport</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">1:13</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Heathrow Airport</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">3:10</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Gatwick Airport</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">3:14</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                            </div>
+                            <!--schedule__table-->
+                        </div>
+                        <!--schedule-->
+                        <div class="schedule">
+                            <div class="schedule__title">Nearby airports & drive time</div>
+                            <!--schedule__title-->
+                            <div class="schedule__table schedule__table--2col">
+                                <div class="schedule__tableRow schedule__tableRow--heading">
+                                    <div class="schedule__cell schedule__cell--primary schedule__cell--heading"></div>
+                                    <!--schedule__cell--heading-->
+                                    <div class="schedule__cell schedule__cell--secondary schedule__cell--heading">Drive
+                                        Time</div>
+                                    <!--schedule__cell--heading-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Doncaster-Sheffield</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">0:33</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Manchester</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">1:33</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">East Midlands</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">1:01</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Leeds Bradford</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">1:11</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Birmingham</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">1:35</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                            </div>
+                            <!--schedule__table-->
+                        </div>
+                        <!--schedule-->
+                        <div class="schedule">
+                            <div class="schedule__title">Airport Access</div>
+                            <!--schedule__title-->
+                            <div class="schedule__table schedule__table--2col">
+                                <div class="schedule__tableRow schedule__tableRow--heading">
+                                    <div class="schedule__cell schedule__cell--primary schedule__cell--heading"></div>
+                                    <!--schedule__cell--heading-->
+                                    <div class="schedule__cell schedule__cell--secondary schedule__cell--heading">
+                                        Sheffield</div>
+                                    <!--schedule__cell--heading-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Doncaster-Sheffield</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">Direct Bus</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Manchester</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">Direct Train</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">East Midlands</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">Direct Train</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Leeds Bradford</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">Bus to Leeds centre,<br>then
+                                        direct train</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Birmingham</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">Direct Train</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Heathrow Airport<br>(via St.
+                                        Pancras)</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">3:10</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                                <div class="schedule__tableRow">
+                                    <div class="schedule__cell schedule__cell--primary">Gatwick Airport<br>(via St.
+                                        Pancras)</div>
+                                    <!--schedule__cell-->
+                                    <div class="schedule__cell schedule__cell--secondary">3:14</div>
+                                    <!--schedule__cell-->
+                                </div>
+                                <!--schedule__tableRow-->
+                            </div>
+                            <!--schedule__table-->
+                        </div>
+                        <!--schedule-->
+                    </div>
+                    <!--schedule__container-->
+                    <div class="quote__container">
+                        <div class="quote quote--locationMap" data-max-height="css">{{{bottom-right-text-box}}}</div>
+                        <!--qoute-->
+                    </div>
+                    <!--quote__container-->
+                </div>
+                <!--column--right-->
+                <div class="pageNumber u-white"></div>
+            </div>
+            <!--container fit-->
+
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_location-map-page--mp}}
+
+    {{#block.SCC_image-page-a--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--imagePageA">
+                <div class="header header--imagePageA {{#hero-image--mp}}header--withHero{{/hero-image--mp}}">
+                    <div class="hero hero--doubleColumnPageA">
+                        <div class="reposition-fix">{{{hero-image--mp}}}</div>
+                    </div>
+                    <!--hero--doubleColumnPageA-->
+                    <div class="shape shape--header shape--doubleColumnPageA">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--doubleColumnPageA-->
+
+            </div>
+            <!--container fit-->
+            <div class="pageNumber"></div>
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_image-page-a--mp}}
+
+    {{#block.SCC_image-page-b--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--imagePageB">
+                <div class="header header--imagePageB {{#hero-image--mp}}header--withHero{{/hero-image--mp}}">
+                    <div class="hero hero--doubleColumnPageA">
+                        <div class="reposition-fix">{{{hero-image--mp}}}</div>
+                    </div>
+                    <!--hero--doubleColumnPageA-->
+                    <div class="shape shape--header shape--imagePageB">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+
+                        {{#page-subtitle}}
+                        <div class="pageSubtitle" data-max-line="1">
+                            <div class="pageSubtitle__inner">
+                                {{{page-subtitle}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-subtitle}}
+
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--doubleColumnPageA-->
+
+                {{#hero-lower-image--mp}}
+                <div class="shape shape--middle"></div>
+                <div class="hero hero-lower--doubleColumnPageA">
+                    <div class="reposition-fix">{{{hero-lower-image--mp}}}</div>
+                </div>
+                <!--hero--doubleColumnPageA-->
+                {{/hero-lower-image--mp}}
+
+            </div>
+            <!--container fit-->
+            <div class="pageNumber"></div>
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_image-page-b--mp}}
+
+    {{#block.SCC_image-page-c--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--imagePageC">
+                <div class="header header--imagePageC {{#hero-image--mp}}header--withHero{{/hero-image--mp}}">
+                    <div class="hero hero--doubleColumnPageA">
+                        <div class="reposition-fix">{{{hero-image--mp}}}</div>
+                    </div>
+                    <!--hero--doubleColumnPageA-->
+
+                    <div class="shape shape--header shape--imagePageC">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header--doubleColumnPageC-->
+
+                <div class="image-caption image-caption-top-image">
+                    <div class="image-caption-inner">
+                        {{{image-caption--mp}}}
+                    </div>
+                </div>
+
+                <div class="lower-half">
+
+                    <div class="sect upper-sect">
+
+                        <div class="image-left">
+                            <div class="image-left-inner">
+                                <div class="reposition-fix">{{{lower-image-top-left--mp}}}</div>
+                            </div>
+                            <div class="image-caption image-left-caption">
+                                <div class="image-caption-inner" data-max-line="1">
+                                    {{{image-centre-left-caption--mp}}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="image-right">
+                            <div class="image-right-inner">
+                                <div class="reposition-fix">{{{lower-image-top-right--mp}}}</div>
+                            </div>
+                            <div class="image-caption image-right-caption">
+                                <div class="image-caption-inner" data-max-line="1">
+                                    {{{image-centre-right-caption--mp}}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="sect lower-sect">
+
+                        <div class="image-left">
+                            <div class="image-left-inner">
+                                <div class="reposition-fix">{{{lower-image-bottom-left--mp}}}</div>
+                            </div>
+                            <div class="image-caption image-left-caption">
+                                <div class="image-caption-inner" data-max-line="1">
+                                    {{{image-lower-left-caption--mp}}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="image-right">
+                            <div class="image-right-inner">
+                                <div class="reposition-fix">{{{lower-image-bottom-right--mp}}}</div>
+                            </div>
+                            <div class="image-caption image-right-caption">
+                                <div class="image-caption-inner" data-max-line="1">
+                                    {{{image-lower-right-caption--mp}}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!--container fit-->
+            <div class="pageNumber"></div>
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_image-page-c--mp}}
+
+    {{#block.SCC_image-page-d--mp}}
+    <div class="page js-page-counter">
+
+        <div class="bleed">
+
+            <div class="container fit fit--imagePageD">
+                <div class="header header--imagePageD">
+
+                    <div class="shape shape--header shape--imagePageC">
+                        {{#page-title}}
+                        <div class="pageTitle" data-max-line="1">
+                            <div class="pageTitle__inner" style="font-size:{{{page-title-font-size}}}%;">
+                                {{{page-title}}}
+                            </div>
+                            <!--pageTitle__inner -->
+                        </div>
+                        <!--pageTitle-->
+                        {{/page-title}}
+
+                    </div>
+                    <!--shape--header-->
+                </div>
+                <!--header-->
+
+                <div class="body-area">
+
+                    <div class="horisect horisect-one">
+                        <div class="vertisect vertisect-left">
+                            <div class="image-inner-left">
+                                <div class="reposition-fix">{{{top-left-image--mp}}}</div>
+                            </div>
+                            <div class="image-caption-left">
+                                {{{top-left-image-caption--mp}}}
+                            </div>
+                        </div>
+
+                        <div class="vertisect vertisect-right">
+                            <div class="image-inner-right">
+                                <div class="reposition-fix">{{{top-right-image--mp}}}</div>
+                            </div>
+                            <div class="image-caption-left">
+                                {{{top-right-image-caption--mp}}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="horisect horisect-two">
+                        <div class="vertisect vertisect-left">
+                            <div class="image-inner-left">
+                                <div class="reposition-fix">{{{centre-left-image--mp}}}</div>
+                            </div>
+                            <div class="image-caption-left">
+                                {{{centre-left-image-caption--mp}}}
+                            </div>
+                        </div>
+
+                        <div class="vertisect vertisect-right">
+                            <div class="image-inner-right">
+                                <div class="reposition-fix">{{{centre-right-image--mp}}}</div>
+                            </div>
+                            <div class="image-caption-left">
+                                {{{centre-right-image-caption--mp}}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="horisect horisect-three">
+                        <div class="vertisect vertisect-left">
+                            <div class="image-inner-left">
+                                <div class="reposition-fix">{{{bottom-left-image--mp}}}</div>
+                            </div>
+                            <div class="image-caption-left">
+                                {{{bottom-left-image-caption--mp}}}
+                            </div>
+                        </div>
+
+                        <div class="vertisect vertisect-right">
+                            <div class="image-inner-right">
+                                <div class="reposition-fix">{{{bottom-right-image--mp}}}</div>
+                            </div>
+                            <div class="image-caption-left">
+                                {{{bottom-right-image-caption--mp}}}
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!--body-area--->
+
+            </div>
+            <!--container fit-->
+            <div class="pageNumber"></div>
+        </div>
+        <!--bleed-->
+    </div>
+    <!--page-->
+    {{/block.SCC_image-page-d--mp}}
+
+    {{/collection.SCC_pages--mp}}
+
+
+
+    <script>
+        window.showCrop = {
+            {
+                show - crop
+            }
+        } {
+            {
+                ^ show - crop
+            }
+        }
+        true {
+            {
+                /show-crop}};
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/custom-rich-text.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="js/text-fit-min.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js"
+        type="text/javascript"></script>
+    <script>
+        {
+            {
+                #
+                placeholder - toggle - new
+            }
+        }
+        document.body.classList.add(
+            "u-placeholder-{{ placeholder-toggle-new }}{{^placeholder-toggle-new}}hide{{/placeholder-toggle-new}}"); {
+            {
+                /placeholder-toggle-new }} {
+                    {
+                        #
+                        placeholder - validation
+                    }
+                }
+                document.body.classList.add("placeholder__validation--{{placeholder-validation}}") {
+                        {
+                            /placeholder-validation }}
+    </script>
+    <script>
+        console.clear();
+
+        // Tracking text changes and firing text restriction functions (mutationObserver)
+        const overflowObserver = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                maxLineCheck();
+                maxHeightCheck();
+                charLimit();
+                hideEmptyTitles();
+            });
+        });
+
+        function specialWording(selector) {
+            const elements = document.querySelectorAll(selector);
+            Array.prototype.slice.call(elements).forEach(function (e) {
+                if (!e.getElementsByClassName('tinymce_style--dark').length) {
+                    const newHTML = e.innerHTML.replace(/sheffield/gi,
+                        '<span class="tinymce_style--dark">$&</span>');
+                    if (newHTML !== e.innerHTML) {
+                        e.innerHTML = newHTML;
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('DOMSubtreeModified', function () {
+            specialWording('.sheffield-yes');
+        });
+
+        const injectObserver = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                injectDynamicContent();
+            });
+        });
+
+        const injectSources = document.querySelectorAll('[data-target-id]');
+
+        overflowObserver.observe(document.body, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+        });
+
+        if (injectSources.length > 0) {
+            injectSources.forEach(src => {
+                injectObserver.observe(src, {
+                    attributes: false,
+                    characterData: true,
+                    childList: true,
+                    subtree: true,
+                    attributeOldValue: false,
+                    characterDataOldValue: true
+                });
+            });
+        }
+
+        function gridItemCounter() {
+            const containers = document.querySelectorAll('.js-gridItemCounter-container');
+            if (!containers) return;
+
+            containers.forEach(container => {
+                const grid = container.querySelector('.js-gridItemCounter-grid');
+                const itemsLength = grid.querySelectorAll('.js-gridItemCounter-item').length;
+                const footer = container.querySelector('.js-gridItemCounter-footer');
+                const pageNumber = container.querySelector('.pageNumber');
+                const itemLimit = parseInt(container.dataset.itemCounterLimit);
+
+                if (!grid || !itemsLength) return;
+
+                if (itemsLength > itemLimit) {
+                    footer.classList.add('u-hide');
+                    pageNumber.classList.remove('u-white');
+                } else {
+                    footer.classList.remove('u-hide');
+                    pageNumber.classList.add('u-white');
+                }
+            })
+        };
+
+        gridItemCounter();
+
+        function injectPageNumber() {
+            const pages = document.querySelectorAll('.js-page-counter');
+            let number = 2;
+
+            if (!pages) {
+                return
+            }
+            pages.forEach(page => {
+                const pageNumber = page.querySelector('.pageNumber');
+                pageNumber.innerHTML = `${number}`;
+                number++
+            });
+        };
+
+        injectPageNumber();
+
+        // Calling text size restriction functions once the fonts are loaded
+        document.fonts.ready.then(() => {
+            maxLineCheck();
+            maxHeightCheck();
+            injectDynamicContent();
+            hideEmptyTitles();
+        });
+
+        placeholderController();
+        checkCrop();
+        checkExport();
+        charLimit();
+        customRichText()
+    </script>
+
+
+</body>
+
+</html>
