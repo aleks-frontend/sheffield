@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-sign="OSZ">
+<html data-sign="OSZ" async>
   <head>
     <title>Template title</title>
     <meta charset="utf-8">
@@ -143,30 +143,14 @@
         flex-direction: column;
       }
 
-      .fit--frontCover {
-        padding-bottom: 46pt;
-      }
-
-      .fit--sectionDividerA {
-        justify-content: flex-end;
-      }
-
+      .fit--frontCover { padding-bottom: 46pt; }
+      .fit--sectionDividerA { justify-content: flex-end; }      
       .fit--doubleColumnPageA,
-      .fit--doubleColumnPageD {
-        padding-bottom: 53pt;
-      }
-
-      .fit--imagePageA {
-        padding-bottom: 53pt;
-      }
-
-      .fit--listPage {
-        padding-bottom: 48pt;
-      }
-
-      .fit--locationMap {
-        flex-direction: row;
-      }
+      .fit--doubleColumnPageD { padding-bottom: 53pt; }
+      .fit--imagePageA { padding-bottom: 53pt; }
+      .fit--listPage { padding-bottom: 48pt; }
+      .fit--locationMap { flex-direction: row; }      
+      .fit--doubleColumnPageD { padding-bottom: 0; }
 
       .header {
         display: flex;
@@ -404,6 +388,11 @@
       .body--tablePage {
         padding: 0 38pt;
       }
+      
+      .body--doubleColumnPageD {
+        display: flex;
+        flex-direction: column;
+      }      
 
       .solidShape {
         position: absolute;
@@ -1048,13 +1037,14 @@
         margin-bottom: 12pt;
       }
 
-      .textBox--doubleColumnPageD {
-
-      }
-
       .textBox--doubleColumnPageA,
       .textBox--doubleColumnPageB {
         margin-bottom: 26pt;
+      }
+      
+      .textBox--doubleColumnPageD.textBox {
+        margin-bottom: 25px;
+        margin-top: 0;
       }
 
       .column--left .textBox--doubleColumnPageA,
@@ -1124,12 +1114,20 @@
       .pageLayout--1 .textBox--doubleColumnPageD.textBox--grey  {
         padding: 22pt 39pt 22pt 29pt;
         margin-right: 0;
-        margin-top: 25px;
+      }
+      
+      .pageLayout--1 .textBox--doubleColumnPageD.textBox--grey.textBox--withImage {
+        margin-top: 90pt;
+        padding-top: 86pt;
       }
 
       .textBox--singleColumnPageB.textBox--footer {
         padding: 25pt 33pt 57pt 38pt;
       }
+
+      .column--doubleColumnPageD .textBox--grey:last-child { flex:1; }
+      .column--doubleColumnPageD .textBox:last-child { padding-bottom: 53pt; }
+      .textBox--doubleColumnPageD.textBox:last-child { margin-bottom: 0; }      
 
       .textBox h1 {
         margin-bottom: 9.2pt;
@@ -1246,6 +1244,8 @@
       .column__container--doubleColumnPageB {
         height: 100%;
       }
+      
+      .column__container--doubleColumnPageD { flex: 1; }      
 
       .column {
         flex-shrink: 0;
@@ -1312,6 +1312,11 @@
         width: 247pt;
         position: relative;
       }
+      
+      .column--doubleColumnPageD {
+        display: flex;
+        flex-direction: column;
+      }      
 
       .profile {
         display: flex;
@@ -1956,18 +1961,6 @@
         flex-direction: row;
       }
 
-      .horisect-one {
-
-      }
-
-      .horisect-two {
-
-      }     
-
-      .horisect-three {
-
-      }   
-
       .vertisect-left {
         width: 8em;
         padding: 0 0em 0.9em 0.9em;
@@ -2009,43 +2002,6 @@
         height: 112%;
       }
 
-
-
-
-
-
-
-      .fit--doubleColumnPageD {
-        padding-bottom: 0;
-      }
-
-      .body--doubleColumnPageD {
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .column__container--doubleColumnPageD {
-        flex: 1;
-      }
-      
-      .column--doubleColumnPageD {
-        display: flex;
-        flex-direction: column;
-      }
-       
-      .column--doubleColumnPageD .textBox--grey:last-child { flex:1; }
-
-      .column--doubleColumnPageD .textBox:last-child {
-        padding-bottom: 53pt;
-      }
-
-      .pageLayout--1 .textBox--doubleColumnPageD.textBox {
-        margin-bottom: 25px;
-        margin-top: 0;
-      }
-      .pageLayout--1 .textBox--doubleColumnPageD.textBox:last-child {
-        margin-bottom: 0;
-      }
 
       /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
     </style>
@@ -3399,10 +3355,20 @@
       charLimit();
       customRichText()
 
-
-
     </script>
 
+    <script type="text/javascript">
+      // Add many fallbacks for Print Ready
+      document.addEventListener('DOMContentLoaded', function(event) {
+        document.dispatchEvent(new Event('printready'));
+      });
 
+      setTimeout(function() {
+        document.dispatchEvent(new Event('printready'));
+      }, 10000);
+
+      document.dispatchEvent(new Event('printready'));
+    </script>
+    
   </body>
 </html>
