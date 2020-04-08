@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html data-sign="OSZ">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    <style>      
+      @import "https://outfit-assets-production.s3.amazonaws.com/fonts/sheffield-headline/stylesheet.css";
+      @import "https://outfit-assets-production.s3.amazonaws.com/fonts/sheffield-stencil/stylesheet.css";
+      @import url('https://fonts.googleapis.com/css?family=EB+Garamond:700');
+
+
+
+      @import "https://outfit-assets-production.s3.amazonaws.com/fonts/Univers/stylesheet.css";
+      @import "https://outfit-assets-production.s3.amazonaws.com/fonts/bembo-font/stylesheet.css";
+
+      :root {
+        --black: {{{ account.colors.industrial-black }}};
+        --white: {{{ account.colors.gallery-white }}};
+        --red: {{{ account.colors.vibrant-red }}};
+        --pink: {{{ account.colors.people-s-pink }}};
+        --blue: {{{account.colors.great-outdoors-blue}}};
+        --gray: {{{account.colors.misty-grey}}};
+        --green: {{{account.colors.seven-hills-green}}};
+        --yellow: {{{account.colors.jersey-yellow}}};
+        --cotton: {{{account.colors.bag-cotton}}};
+      }
+
+      html {
+        font-family: 'Sheffield Headline';
+        font-size: 11pt;
+        color: var(--black);
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+
+      .fit--back {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .fullPageBackground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0; 
+      }
+
+      .textBlock {
+        z-index: 1;        
+      }
+
+      .textBlock--primary {
+        position: absolute;
+        width: 8.59rem;
+        height: 5.75rem;
+        padding-top: 1.11rem;
+        padding-left: 0.9rem;
+        padding-right: 1rem;
+      }
+
+      .textBlock--primary-cotton {
+        background-color: var(--cotton);
+        color: var(--black);
+      }
+
+      .textBlock--primary-red {
+        background-color: var(--red);
+      }
+
+      .textBlock--primary-pink {
+        background-color: var(--pink);
+      }
+
+      .textBlock--primary-green {
+        background-color: var(--green);
+      }
+
+      .textBlock--primary-blue {
+        background-color: var(--blue);
+      }
+
+      .textBlock--primary-yellow {
+        background-color: var(--yellow);
+      }
+
+      .textBlock--secondary {
+        float: right;
+        clear: both;
+        width: 4.36rem;
+        height: 8.16rem;
+        margin-top: -1.42rem;
+        margin-left: 36pt;
+        padding: 0.22rem 0.5rem 0.22rem 0.5rem;     
+      }
+
+      .textBlock--secondary-cotton {
+        background-color: var(--cotton);
+      }
+
+      .textBlock--secondary-red {
+        background-color: var(--red);
+      }
+
+      .textBlock--secondary-pink {
+        background-color: var(--pink);
+      }
+
+      .textBlock--secondary-green {
+        background-color: var(--green);
+      }
+
+      .textBlock--secondary-blue {
+        background-color: var(--blue);
+      }
+      
+      .textBlock--secondary-yellow {
+        background-color: var(--yellow);
+      }
+
+      .textBlock--secondary h3 {
+        font-size: 0.41rem;
+        word-spacing: 1pt;
+        margin-bottom: 9pt;
+      }
+
+      .textBlock--secondary-black h3 {
+        color: var(--white);
+      }
+
+      .textBlock--secondary p, .textBlock--secondary a, .textBlock--secondary ul {
+        margin-bottom: 10pt;
+        font-family: sans-serif;
+        font-size: 0.31rem;
+        line-height: 1.24em;
+        color: var(--black);
+      }
+      
+      .textBlock--secondary a{
+        text-decoration: none;
+      }
+      
+      .textBlock--secondary ul{
+        list-style-type: disc;
+      }
+      
+      
+
+      .heading  {
+        font-size: 0.9rem;
+        line-height: 0.8rem;
+        letter-spacing: 0.5pt;
+        color: var(--white);
+        max-width: 381px;
+      }
+
+      .textBlock--primary-cotton .heading {
+        color: var(--black);
+      }
+
+      .heading .tinymce_style--dark {
+        font-family: "Sheffield Stencil", sans-serif;
+        color: var(--black);
+      }
+
+      .heading .tinymce_style--light {
+        color: var(--white);
+      }
+
+      .quoteBlock {
+        color: var(--white);
+        font-size: 0.6rem;
+        font-family: 'EB Garamond', serif;
+        width: 11.15rem;
+      }
+
+      .quoteBlock--primary {
+        position: absolute;
+        top: 5.95rem;
+        height: 2.1rem;
+        margin-top: -0.9rem;
+        right: 0.89rem;
+        padding: 0.5rem 0.93rem 0;
+        line-height: 0.6rem;
+        line-height: 0.98em;
+        z-index: 2;
+        font-family: 'Bembo';
+        font-size: 24.8pt;
+        letter-spacing: -0.4pt;
+      }
+
+      .quoteBlock--primary-cotton {
+        background-color: var(--cotton);
+      }
+
+      .quoteBlock--primary-red {
+        background-color: var(--red);
+      }
+
+      .quoteBlock--primary-pink {
+        background-color: var(--pink);
+      }
+
+      .quoteBlock--primary-green {
+        background-color: var(--green);
+      }
+
+      .quoteBlock--primary-blue {
+        background-color: var(--blue);
+      }
+
+      .quoteBlock--primary-yellow {
+        background-color: var(--yellow);
+      }
+
+      .quoteBlock--primary h4 {
+        color: var(--white);
+        font-weight: bold;
+      }
+
+      .quoteBlock--primary-cotton h4 {
+        color: var(--black);
+      }
+
+      .quoteBlock--secondary {
+        float: right;
+        clear: both;
+        width: 5.06rem;
+        height: 2.35rem;
+        z-index: 2;
+        padding: 0.35rem 0.35rem 0.3rem 0.35rem;
+        margin-left: 7px;
+        margin-bottom: 55px;
+        font-size: 17pt;
+        font-family: 'Bembo';
+        font-weight: bold;  
+        letter-spacing: 0.3pt;
+        line-height: 1.3em;
+      }
+
+      .quoteBlock--secondary-cotton {
+        background-color: var(--cotton);
+        color: var(--black);
+      }
+
+      .quoteBlock--secondary-red {
+        background-color: var(--red);
+      }
+
+      .quoteBlock--secondary-pink {
+        background-color: var(--pink);
+      }
+
+      .quoteBlock--secondary-green {
+        background-color: var(--green);
+      }
+
+      .quoteBlock--secondary-blue {
+        background-color: var(--blue);
+      }
+
+      .quoteBlock--secondary-yellow {
+        background-color: var(--yellow);
+      }
+
+      .fit--back {
+        height: 100%;
+      }
+
+      .fit--back-white {
+        background-color: var(--white);
+
+      }
+
+      .fit--back-cotton {
+        background-color: var(--cotton);
+      }
+
+      .fit--back-gray {
+        background-color: var(--gray);
+      }
+
+      .fit--back-red {
+        background-color: var(--red);
+      }
+
+      .fit--back-pink {
+        background-color: var(--pink);
+      }
+
+      .fit--back-green {
+        background-color: var(--green);
+      }
+
+      .fit--back-blue {
+        background-color: var(--blue);
+      }
+
+      .fit--back-yellow {
+        background-color: var(--yellow);
+      }
+
+      .body {
+        flex: 1;
+        font-size: 0.3rem;
+        padding: 0.91rem 0 0 0.88rem;
+        width: 100%;
+      }
+
+      .foregroundImg {
+        position: relative;
+        float: right;
+        width: 5.59rem;
+        height: 7.68rem;
+        margin-right: 0.85rem;
+        margin-left: 11px;
+        z-index: 0;
+      }
+
+      .footer {
+        height: 125px;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 0.9rem;
+      }
+
+      .logo__container {
+        position: relative;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding-right: 3mm;
+        padding-bottom: 27px;
+      }
+      
+      .logo__container--wide {
+        justify-content: space-between;
+      }
+
+      .logo {
+        width: auto;
+        max-width: 23%;
+        height: 54px;
+        object-fit: contain;
+        margin-left: 35px;
+      }     
+
+      .logo__container--wide .logo {
+        margin: 0;
+      }
+      
+      .logo__container--wide .logo--static,
+      .logo--static {
+        width: 80px;
+        height: 80px;
+        margin-bottom: -18px;
+      }      
+
+      .content {
+        margin-top: -9px;
+      }
+
+      .content p, .content a, .content ul {
+        margin-bottom: 15pt;
+        margin-left: 1px;
+        font-family: 'Univers LT Pro 55';
+        font-size: 11.5pt;
+        line-height: 1.3;
+      }
+      
+      .content a, .content a{
+        text-decoration: none;
+        color: var(--black);
+      }
+      
+      .content ul{
+        list-style-type: disc;
+      }
+      
+      .is-firefox .content p { font-size: 11.3pt; }
+
+      .content p:last-child {
+        margin-bottom: 0;
+      }
+
+      .content h2, .content h2 a, .content h2 ul {
+        font-size: 0.56rem;
+        line-height: 1.24;
+        margin-bottom: 10pt;
+        font-family: "Sheffield Headline"
+      }
+
+      .content p:last-child {
+        margin-bottom: 0;
+        padding-right: 0.5rem;
+      }
+
+      /* Helper Classes */
+      .u-relative {
+        position: relative;
+      }
+
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" class="u-placeholder-{{ placeholder-toggle-new }}{{^placeholder-toggle-new}}hide{{/placeholder-toggle-new}} stencil-yes" data-crop="{{show-crop}}">
+    <div class="placeholderMaster" data-opacity="{{ placeholder-opacity }}">
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-1 }}"></div>
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-2 }}"></div>
+    </div><!-- end placeholderMaster -->
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="fullPageBackground">
+            <div class="reposition-fix">
+              {{{ SH_full-page-background--cs }}}
+            </div>
+          </div>
+          <div class="textBlock textBlock--primary textBlock--primary-{{^SH_heading-background-colour--cs }}pink{{/SH_heading-background-colour--cs }}{{SH_heading-background-colour--cs }}">
+            <div class="heading txt-main" data-max-line="4">
+              {{{ SH_heading--cs }}}
+            </div>
+          </div><!--textBlocks-->
+          <div class="quoteBlock quoteBlock--primary quoteBlock--primary-{{^SH_subheading-background-colour--cs }}pink{{/SH_subheading-background-colour--cs }}{{SH_subheading-background-colour--cs }}">
+            <h4 data-max-line="2">{{{ SH_subheding--cs }}}</h4>
+          </div> 
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit--back fit--back-{{^SH_background-colour--cs }}cotton{{/SH_background-colour--cs }}{{SH_background-colour--cs }}">
+          <div class="body">
+
+
+            <div class="foregroundImg">
+              <div class="reposition-fix">
+                {{{ SH_foreground-image--cs }}}
+              </div><!-- end reposition-fix -->
+            </div>
+            <div class="textBlock textBlock--secondary textBlock--secondary-{{^SH_body-copy-background-colour--cs }}red{{/SH_body-copy-background-colour--cs }}{{SH_body-copy-background-colour--cs }} u-relative" data-max-height="437">
+              {{{ SH_body-copy--cs }}}
+            </div> <!--textBlock-->
+
+            <div class="quoteBlock quoteBlock--secondary quoteBlock--secondary-{{^SH_quote-background-colour--cs }}pink{{/SH_quote-background-colour--cs }}{{SH_quote-background-colour--cs }} u-relative " data-max-height="130">
+              {{{ SH_quote--cs }}}
+            </div><!--quoteBlock-->
+
+            <div class="content" data-max-height="990" >
+              {{{ SH_main-body--cs }}}
+            </div><!--content-->
+
+          </div><!--body-->
+
+          <div class="footer">
+            <div class="logo__container">
+              {{ #collection.SH-sponsors--cs }}
+              {{ #SH_partner-logo--cs }}
+              <img class="logo" src="{{{ SH_partner-logo--cs }}}" />
+              {{ /SH_partner-logo--cs }}
+              {{ /collection.SH-sponsors--cs }} 
+              <img class="logo logo--static" src="{{{account.logos.SCC_Yellow}}}" />
+            </div><!--logo__container-->
+          </div> <!-- footer -->
+
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+        });
+      });
+
+      function specialWording(selector) {
+        const elements = document.querySelectorAll(selector);
+        Array.prototype.slice.call(elements).forEach(function (e) {
+          if (!e.getElementsByClassName('tinymce_style--dark').length) {
+            const newHTML = e.innerHTML.replace(/sheffield/gi, '<span class="tinymce_style--dark">$&</span>');          
+            if (newHTML !== e.innerHTML) {            
+              e.innerHTML = newHTML;
+            }
+          }
+        });
+      }
+      
+      function logoCount() {
+        const container = document.querySelector('.logo__container');        
+        const logos = container.querySelectorAll('.logo');
+        
+        if ( logos.length > 4 ) container.classList.add('logo__container--wide');
+      }
+
+      window.addEventListener('DOMSubtreeModified', function () {
+        specialWording('.stencil-yes .txt-main token-value'); 
+      }); 
+
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+      });
+
+      placeholderController();
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+      function detectSystem() {
+        const isMac = window.navigator.appVersion.includes('Mac');
+        if ( isMac ) document.body.classList.add('is-mac');
+      }
+
+      detectSystem();      
+      logoCount();
+
+    </script>
+
+
+  </body>
+</html>

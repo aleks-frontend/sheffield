@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html data-sign="OS?">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <style>
+      @import "https://outfit-assets-production.s3.amazonaws.com/fonts/Univers/stylesheet.css";
+      
+      :root {
+        --marketing: {{{account.colors.vibrant-red}}};
+        --business: {{{account.colors.start-up-orange}}};
+        --conference: {{{account.colors.people-s-pink}}};
+        --invest: {{{account.colors.great-outdoors-blue}}};
+        --black: {{{account.colors.industrial-black}}};
+        --white: {{{account.colors.gallery-white}}};
+        --dynamic-color: var(--{{{subBrandChoice}}});
+      }
+      
+
+      html {
+        font-family: "Univers LT Pro 55";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 11pt;
+        color: #000;
+        word-break: break-word;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+      
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+      
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      
+      .back .fit{
+        background: var(--dynamic-color);
+      }
+      
+      .container{
+        display: flex;
+      }
+      
+      .front .logoContainer{
+        width: 68px;
+        margin-top: 3mm;
+        margin-left: 34px;
+      }
+      
+      .front .content{
+        flex: 1;
+        background: var(--black);
+        margin-top: calc(3mm + 68px);
+        font-size: 12.5pt;
+    	padding: 21px 20px 25px 23px;
+        color: var(--white);
+      }
+      
+      .front .name, .back .name{
+        font-weight: bold;
+        color: var(--dynamic-color);
+        line-height: 13pt;
+      }
+      
+      .front .department{
+        margin-bottom: 30px;
+      }
+      
+      .front .address{
+        font-size: 11pt;
+      }
+      
+      .back .content{
+        width: 100%;
+        height: 100%;
+        background: var(--white);
+        margin: 23px 0px 0px 34px;
+        padding: 22px 20px 65px 22px;
+      }
+      
+      .back .name{
+        color: var(--black);
+      }
+      
+      .back .contact{
+        margin-top: 30px;
+    	line-height: 14pt;
+      }
+      
+      .subBrandColor .front .content{
+        background: var(--dynamic-color);
+      }
+      
+      .subBrandColor .front .name{
+        color: var(--black);
+      }
+      
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" data-crop="{{show-crop}}" class="{{textBoxColor}}">
+    
+    
+    {{#spreadsheet.businessCard}}
+    <div class="businessCard">
+      <div class="page front">
+        <div class="bleed">
+          <div class="container fit">
+            <div class="logoContainer"><img class="logo"></div>
+            <div class="content">
+              <div class="name" data-max-line="1">{{name}}</div>
+              <div class="department" data-max-line="1"></div>
+              <div class="address" data-max-line="2">{{address}}</div>
+            </div>
+          </div><!--container fit-->
+        </div><!--bleed-->
+      </div><!--page-->
+      <div class="page back">
+        <div class="bleed">
+          <div class="container fit">
+            <div class="content">
+              <div class="name" data-max-line="1">{{name}}</div>
+              <div class="position" data-max-line="1">{{position}}</div>
+              <div class="contact">
+                <div class="phone1" data-max-line="1">{{phone1}}</div>
+                <div class="phone2" data-max-line="1">{{phone2}}</div>
+                <div class="email" data-max-line="1">{{email}}</div>
+                <div class="website">welcometosheffield.co.uk/<span class="websiteDepartment"></span></div>
+              </div>
+            </div>
+          </div><!--container fit-->
+        </div><!--bleed-->
+      </div><!--page-->
+    </div>
+    {{/spreadsheet.businessCard}}
+    
+    
+    
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="js/text-fit-min.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+    </script>
+    <script>
+      
+      var marketingLogo = "{{{account.logos.SCC_Red}}}";
+      var businessLogo = "{{{account.logos.business-scc-2}}}";
+      var investLogo = "{{{account.logos.invest-scc-2}}}";
+      var conferenceLogo = "{{{account.logos.conference-scc-2}}}";
+      var logo = "";
+      var department = "";
+      
+      switch("{{{subBrandChoice}}}"){
+        case "business":
+          logo = businessLogo;
+          break;
+        case "marketing":
+          logo = marketingLogo;
+          break;
+        case "invest":
+          logo = investLogo;
+          break;
+        case "conference":
+          logo = conferenceLogo;
+          break;
+      }
+      
+      
+      
+      var page = document.querySelectorAll(".businessCard");
+      
+      page.forEach(function(el){
+        el.querySelector(".logo").setAttribute("src", logo);
+        el.querySelector(".department").innerHTML = "{{{subBrandChoice}}}".charAt(0).toUpperCase() + "{{{subBrandChoice}}}".slice(1) + " Sheffield";
+        el.querySelector(".websiteDepartment").innerHTML = "{{{subBrandChoice}}}";
+      });
+      
+      
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+      
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+      
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+      
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+
+    </script>
+
+
+  </body>
+</html>
