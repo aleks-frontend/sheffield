@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html data-sign="OSB">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Circular/stylesheet.css');
+
+      :root {
+        --outdoors-blue: {{{account.colors.great-outdoors-blue}}};
+        --peoples-pink: {{{account.colors.people-s-pink}}};
+        --seven-hils-green: {{{account.colors.seven-hills-green}}};
+        --vibrant-red: {{{account.colors.vibrant-red}}};
+        --jersey-yellow: {{{account.colors.jersey-yellow}}};
+        --bog-cotton: {{{account.colors.bag-cotton}}}; 
+
+        --start-up-orange: {{{account.colors.start-up-orange}}};                
+        --industrial-black: {{{account.colors.industrial-black}}};
+        --galery-white: {{{account.colors.gallery-white}}};
+        --misty-gray: {{{account.colors.misty-grey}}};
+
+        --invest-primary: var(--outdoors-blue);
+        --conference-primary: var(--peoples-pink);
+        --business-primary: var(--start-up-orange);
+
+        --default-dynamic-color: var(--bog-cotton);
+        --brand-dynamic-colour: var(--misty-gray);
+      }
+
+      .backgroundColor--blue { --default-dynamic-color: var(--outdoors-blue); }
+      .backgroundColor--pink { --default-dynamic-color: var(--peoples-pink); }
+      .backgroundColor--green { --default-dynamic-color: var(--seven-hils-green); }
+      .backgroundColor--red {--default-dynamic-color: var(--vibrant-red); }
+      .backgroundColor--yellow {--default-dynamic-color: var(--jersey-yellow); }
+      .backgroundColor--cotton {--default-dynamic-color: var(--bog-cotton); }
+
+      .brandingOption--invest.brandBackgroundColor--primary { --brand-dynamic-colour: var(--invest-primary); }
+      .brandingOption--conference.brandBackgroundColor--primary { --brand-dynamic-colour: var(--conference-primary); }
+      .brandingOption--business.brandBackgroundColor--primary { --brand-dynamic-colour: var(--business-primary); }
+
+      .brandBackgroundColor--black { --brand-dynamic-colour: var(--industrial-black); }
+      .brandBackgroundColor--white { --brand-dynamic-colour: var(--galery-white); }
+      .brandBackgroundColor--gray { --brand-dynamic-colour: var(--misty-gray); }
+
+      html {
+        font-family: "Circular";
+        font-size: 11pt;
+        color: #000;
+        word-break: break-word;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+      
+      .logoPosition--top-left.layoutSize--instagram .backgroundImage {
+        top: 2.3rem;
+        right: 2.3rem;
+      }
+
+      .logoPosition--top-right.layoutSize--instagram .backgroundImage {
+        top: 2.3rem;
+        left: 2.3rem;
+      }
+      
+      .logoPosition--bottom-left.layoutSize--instagram .backgroundImage {
+        bottom: 2.3rem;
+        left: 0;
+        top: 0;
+        right: 2.3rem;
+      }
+      
+      .logoPosition--bottom-right.layoutSize--instagram .backgroundImage {
+        bottom: 2.3rem;
+        left: 2.3rem;
+        top: 0;
+        right: 0;
+      }     
+
+      .logoPosition--top-left.layoutSize--twitter-new .backgroundImage {
+        top: 2.3rem;
+        right: 2.3rem;
+      }
+
+      .logoPosition--top-right.layoutSize--twitter-new .backgroundImage {
+        top: 2.3rem;
+        left: 2.3rem;
+      }
+      
+      .logoPosition--bottom-left.layoutSize--twitter-new .backgroundImage {
+        bottom: 2.3rem;
+        left: 0;
+        top: 0;
+        right: 2.3rem;
+      }
+      
+      .logoPosition--bottom-right.layoutSize--twitter-new .backgroundImage {
+        bottom: 2.3rem;
+        left: 2.3rem;
+        top: 0;
+        right: 0;
+      }      
+
+      .logoPosition--top-right.layoutSize--twitter-new .backgroundImage {
+        top: 2.3rem;
+        left: 2.3rem;
+      }      
+
+      .position--top-left.layoutSize--facebook .backgroundImage {
+        top: 2.9rem;
+        right: 2.9rem;
+      }
+
+      .position--top-right.layoutSize--facebook .backgroundImage {
+        top: 2.9rem;
+        left: 2.9rem;
+      }
+
+      .position--bottom-right.layoutSize--facebook .backgroundImage {
+        bottom: 2.9rem;
+        left: 2.9rem;
+      }
+
+      .position--bottom-left.layoutSize--facebook .backgroundImage {
+        bottom: 2.9rem;
+        right: 2.9rem;
+      }
+
+      .position--top-left.layoutSize--twitter .backgroundImage {
+        top: 2.5rem;
+        right: 2.5rem;
+      }
+      
+      .logoPositionReduced--top-right.layoutSize--twitter .backgroundImage {
+        right: 0;
+        left: 2.5rem;
+      }
+
+      .position--top-right.layoutSize--twitter .backgroundImage {
+        top: 2.5rem;
+        left: 2.5rem;
+      }
+
+      .position--bottom-right.layoutSize--twitter .backgroundImage {
+        bottom: 2.5rem;
+        left: 2.5rem;
+      }
+
+      .position--bottom-left.layoutSize--twitter .backgroundImage {
+        bottom: 2.5rem;
+        right: 2.5rem;
+      }
+
+      .position--top-left.layoutSize--linkedin .backgroundImage {
+        top: 2.85rem;
+        right: 2.91rem;
+      }
+
+      .position--top-right.layoutSize--linkedin .backgroundImage{
+        top: 2.85rem;
+        left: 2.91rem;
+      }
+
+      .position--bottom-right.layoutSize--linkedin .backgroundImage {
+        bottom: 2.85rem;
+        left: 2.91rem;
+      }
+
+      .position--bottom-left.layoutSize--linkedin .backgroundImage {
+        bottom: 2.85rem;
+        right: 2.91rem;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .fit { background: var(--default-dynamic-color); }  
+
+      .brandingOption--invest .fit,
+      .brandingOption--business .fit,
+      .brandingOption--conference .fit { 
+        background: var(--brand-dynamic-colour); 
+      }
+
+      .logo { 
+        display: none;
+        position: absolute;
+      }
+
+      .logo svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .layoutSize--instagram .logo {
+        height: 7rem;
+        width: 7rem;
+      }
+
+      .layoutSize--facebook .logo {
+        height: 6.2rem;
+        width: 6.2rem;
+      }
+
+      .layoutSize--twitter .logo {
+        height: 6.85rem;
+        width: 6.85rem;
+      }
+
+      .layoutSize--linkedin .logo {
+        height: 6.8rem;
+        width: 6.8rem;
+      }
+
+      .layoutSize--twitter-new .logo {
+        height: 7.35rem;
+        width: 7.35rem;
+      }
+
+      .position--top-left.layoutSize--facebook .logo {
+        left: 0.25rem;
+        top: 0.25rem;
+      }
+
+      .position--top-right.layoutSize--facebook .logo {
+        right: 0.25rem;
+        top: 0.25rem;
+      }
+
+      .position--bottom-left.layoutSize--facebook .logo {
+        left: 0.25rem;
+        bottom: 0.25rem;
+      }
+
+      .position--bottom-right.layoutSize--facebook .logo {
+        right: 0.25rem;
+        bottom: 0.25rem;
+      }
+
+      .position--top-left.layoutSize--instagram .logo {
+        left: 0.1rem;
+        top: 0.1rem;
+      }
+
+      .position--top-right.layoutSize--instagram .logo {
+        right: 0.1rem;
+        top: 0.1rem;
+      }
+
+      .position--bottom-left.layoutSize--instagram .logo {
+        left: 0.1rem;
+        bottom: 0.1rem;
+      }
+
+      .position--bottom-right.layoutSize--instagram .logo {
+        right: 0.1rem;
+        bottom: 0.1rem;
+      }
+
+      .position--top-left.layoutSize--twitter .logo,
+      .position--top-left.layoutSize--linkedin .logo,
+      .logoPosition--top-left.layoutSize--twitter-new .logo {
+        left: 0.2rem;
+        top: 0.2rem;
+      }
+      
+      .logoPositionReduced--top-left.layoutSize--twitter .logo {
+        left: 0.2rem;
+        top: 0.2rem;        
+      }
+      
+      .logoPositionReduced--top-right.layoutSize--twitter .logo {
+        left: auto;
+        right: 0.2rem;
+        top: 0.2rem;        
+      }
+
+      .position--top-right.layoutSize--twitter .logo,
+      .position--top-right.layoutSize--linkedin .logo,
+      .logoPosition--top-right.layoutSize--twitter-new .logo {
+        right: 0.2rem;
+        top: 0.2rem;
+      }
+      
+      .logoPosition--bottom-left.layoutSize--twitter-new .logo {
+		left: 0.2rem;
+        bottom: 0.2rem;
+      }
+      
+      .logoPosition--bottom-right.layoutSize--twitter-new .logo {
+		right: 0.2rem;
+        bottom: 0.2rem;
+      }      
+
+
+      .position--bottom-left.layoutSize--twitter .logo,
+      .position--bottom-left.layoutSize--linkedin .logo {
+        left: 0.2rem;
+        bottom: 0.2rem;
+      }
+
+      .position--bottom-right.layoutSize--twitter .logo,
+      .position--bottom-right.layoutSize--linkedin .logo {
+        right: 0.2rem;
+        bottom: 0.2rem;
+      }
+
+      .logo--default,
+      .brandingOption--invest .logo--invest,
+      .brandingOption--conference .logo--conference,
+      .brandingOption--business .logo--business {
+        display: block;
+      }
+
+      .brandingOption--invest .logo--default,
+      .brandingOption--conference .logo--default ,
+      .brandingOption--business .logo--default  {
+        display: none;
+      }
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" class="u-placeholder-{{ placeholder-toggle-new }}{{^placeholder-toggle-new}}hide{{/placeholder-toggle-new}}
+                                         position--{{{SH_box-position--ig}}}{{^SH_box-position--ig}}top-left{{/SH_box-position--ig}}
+                                         logoPosition--{{{SH_logo-position-horizontal--ig}}}{{^SH_logo-position-horizontal--ig}}top-left{{/SH_logo-position-horizontal--ig}} 
+                                         logoPositionReduced--{{{SH_logo-position-reduced--ig}}}{{^SH_logo-position-reduced--ig}}top-left{{/SH_logo-position-reduced--ig}}                                         
+                                         backgroundColor--{{{SHF_background-color--ig1}}}
+                                         brandBackgroundColor--{{{SHF_brand-background-color--ig1}}}
+                                         brandingOption--{{{SHF_branding-option--ig1}}}
+                                         layoutSize--{{{SHF_layout-size--ig1}}}{{^SHF_layout-size--ig1}}instagram{{/SHF_layout-size--ig1}}
+                                         " data-crop="{{show-crop}}">
+    <div class="placeholderMaster" data-opacity="{{ placeholder-opacity }}">
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-1 }}"></div>
+    </div><!-- end placeholderMaster -->
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="backgroundImage"> 
+            <div class="reposition-fix"> {{{SHF_background-image--ig1}}} </div> <!-- reposition-fix -->
+          </div> <!-- backgroundImage -->
+          <img src="https://files.outfit.io/media_library_items/83177/sheffield-yellow.svg" class="logo logo--default" />
+          <!--
+          <img src="{{{account.logos.invest-scc-2}}}" class="logo logo--invest" />
+          <img src="{{{account.logos.conference-scc-2}}}" class="logo logo--conference" />
+          <img src="{{{account.logos.business-scc-2}}}" class="logo logo--business" />
+          -->
+          <div class="logo logo--business">{{{account.snippets.logo-business}}}</div>
+          <div class="logo logo--conference">{{{account.snippets.logo-conference}}}</div>
+          <div class="logo logo--invest">{{{account.snippets.logo-invest}}}</div>
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+      });
+
+      placeholderController();
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+      function detectSystem() {
+        const isMac = window.navigator.appVersion.includes('Mac');
+        if ( isMac ) document.body.classList.add('is-mac');
+      }
+
+      detectSystem();
+
+    </script>
+
+
+  </body>
+</html>
