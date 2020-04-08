@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html data-sign="OSB">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Circular/stylesheet.css');
+
+      :root {
+        --outdoors-blue: {{{account.colors.great-outdoors-blue}}};
+        --peoples-pink: {{{account.colors.people-s-pink}}};
+        --seven-hils-green: {{{account.colors.seven-hills-green}}};
+        --vibrant-red: {{{account.colors.vibrant-red}}};
+        --jersey-yellow: {{{account.colors.jersey-yellow}}};
+        --bog-cotton: {{{account.colors.bag-cotton}}}; 
+
+        --start-up-orange: {{{account.colors.start-up-orange}}};        
+        --industrial-black: {{{account.colors.industrial-black}}};
+        --galery-white: {{{account.colors.gallery-white}}};
+        --misty-gray: {{{account.colors.misty-grey}}};
+
+        --invest-primary: var(--outdoors-blue);
+        --conference-primary: var(--peoples-pink);
+        --business-primary: var(--start-up-orange);
+
+        --default-dynamic-color: var(--bog-cotton);
+        --brand-dynamic-colour: var(--misty-gray);
+      }
+
+      .brandingOption--invest {
+        --logo-dynamic-colour: var(--outdoors-blue);
+      }
+
+      .brandingOption--conference {
+        --logo-dynamic-colour: var(--peoples-pink);
+      }
+
+      .brandingOption--business {
+        --logo-dynamic-colour: var(--start-up-orange);
+      }
+
+      .backgroundColor--blue { --default-dynamic-color: var(--outdoors-blue); }
+      .backgroundColor--pink { --default-dynamic-color: var(--peoples-pink); }
+      .backgroundColor--green { --default-dynamic-color: var(--seven-hils-green); }
+      .backgroundColor--red {--default-dynamic-color: var(--vibrant-red); }
+      .backgroundColor--yellow {--default-dynamic-color: var(--jersey-yellow); }
+      .backgroundColor--cotton {--default-dynamic-color: var(--bog-cotton); }
+
+      .brandingOption--invest.brandBackgroundColor--primary { --brand-dynamic-colour: var(--invest-primary); }
+      .brandingOption--conference.brandBackgroundColor--primary { --brand-dynamic-colour: var(--conference-primary); }
+      .brandingOption--business.brandBackgroundColor--primary { --brand-dynamic-colour: var(--business-primary); }
+
+      .brandBackgroundColor--black { --brand-dynamic-colour: var(--industrial-black); }
+      .brandBackgroundColor--gray { --brand-dynamic-colour: var(--misty-gray); }
+      .brandBackgroundColor--white { --brand-dynamic-colour: var(--galery-white); }
+
+      html {
+        font-family: "Circular";
+        font-size: 11pt;
+        color: #000;
+        word-break: break-word;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }     
+
+      .fit {
+        display: grid;
+        grid-template-columns: 30.2% 1fr 30.4%;
+        grid-template-rows: 30.2% 1fr 30.4%;
+        background: var(--default-dynamic-color);
+      }
+
+      .layoutSize--facebook .fit {
+        grid-template-columns: 36.8% 1fr 36.8%;
+        grid-template-rows: 26.2% 1fr 26.2%;
+      }
+
+      .layoutSize--twitter .fit {
+        grid-template-columns: 40.2% 1fr 40.2%;
+        grid-template-rows: 21.45% 1fr 21.45%;
+      }
+
+      .layoutSize--linkedin .fit {
+        grid-template-columns: 32% 1fr 32%;
+        grid-template-rows: 21.3% 1fr 25.4%;
+      }
+
+      .layoutSize--twitter-new .fit {
+        grid-template-columns: repeat(18, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+
+      .brandingOption--invest .fit,
+      .brandingOption--business .fit,
+      .brandingOption--conference .fit { 
+        background: var(--brand-dynamic-colour); 
+      }
+
+      .hero { position: relative; }
+      .hero--primary { grid-row: span 2; }
+
+      .layoutSize--twitter-new .hero--primary {
+        grid-row: 1 / 4;
+        grid-column: 1 / 7;
+      }
+
+      .hero--secondary {
+        grid-row: 2 / 4;
+        grid-column: 2 / 4;
+      }
+
+      .layoutSize--twitter-new .hero--secondary {
+        grid-row: 2 / 5;
+        grid-column: 7 / -1;
+      }
+
+      .logo__container {
+        position: relative;
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+      }
+
+      .layoutSize--twitter-new .logo__container {
+        grid-row: 2 / 4;
+        grid-column: 7 / 13;
+      }
+
+      .logo {
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+
+      .layoutSize--twitter-new .logo {
+        width: 7.23rem;
+        height: 7.43rem;
+        background-color: var(--logo-dynamic-colour);
+      }
+
+      .logo svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .logo--default,
+      .brandingOption--invest .logo--invest,
+      .brandingOption--conference .logo--conference,
+      .brandingOption--business .logo--business {
+        display: block;
+      }
+
+      .brandingOption--invest .logo--default,
+      .brandingOption--conference .logo--default ,
+      .brandingOption--business .logo--default  {
+        display: none;
+      }
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" class="u-placeholder-{{ placeholder-toggle-new }}{{^placeholder-toggle-new}}hide{{/placeholder-toggle-new}}
+                                         backgroundColor--{{{SHF_background-color--ig2}}}
+                                         brandBackgroundColor--{{{SHF_brand-background-color--ig2}}}
+                                         brandingOption--{{{SHF_branding-option--ig2}}}
+                                         layoutSize--{{{SHF_layout-size--ig2}}}{{^SHF_layout-size--ig2}}instagram{{/SHF_layout-size--ig2}}
+                                         " data-crop="{{show-crop}}">
+    <div class="placeholderMaster" data-opacity="{{ placeholder-opacity }}">
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-1 }}"></div>
+    </div><!-- end placeholderMaster -->
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="hero hero--primary"> 
+            <div class="reposition-fix"> {{{SHF_image--ig2}}} </div> <!-- reposition-fix -->
+          </div> <!-- hero--primary -->
+          <div class="hero hero--secondary"> 
+            <div class="reposition-fix"> {{{SHF_image-2--ig2}}} </div> <!-- reposition-fix -->
+          </div> <!-- hero--secondary  -->        
+          <div class="logo__container">
+            <img src="{{{account.logos.SCC_Red}}}" class="logo logo--default" />
+            <!--
+            <img src="{{{account.logos.invest-scc-2}}}" class="logo logo--invest" />
+            <img src="{{{account.logos.conference-scc-2}}}" class="logo logo--conference" />
+            <img src="{{{account.logos.business-scc-2}}}" class="logo logo--business" />
+            -->
+
+            <div class="logo logo--static logo--subbrand logo--business">{{{account.snippets.logo-business}}}</div>
+            <div class="logo logo--static logo--subbrand logo--conference">{{{account.snippets.logo-conference}}}</div>
+            <div class="logo logo--static logo--subbrand logo--invest">{{{account.snippets.logo-invest}}}</div>
+
+
+
+
+
+          </div> <!-- logo__container -->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+      });
+
+      placeholderController();
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+      function detectSystem() {
+        const isMac = window.navigator.appVersion.includes('Mac');
+        if ( isMac ) document.body.classList.add('is-mac');
+      }
+
+      detectSystem();
+
+    </script>
+
+
+  </body>
+</html>
