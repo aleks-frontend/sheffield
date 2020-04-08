@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html data-sign="OS?" async>
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <style>
+      @import "https://outfit-assets-production.s3.amazonaws.com/fonts/sheffield-headline/stylesheet.css";
+      @import "https://outfit-assets-production.s3.amazonaws.com/fonts/sheffield-stencil/stylesheet.css";
+
+      :root {
+        --black: {{{ account.colors.industrial-black }}};
+        --white: {{{ account.colors.gallery-white }}};
+        --pink: {{{ account.colors.people-s-pink }}};
+        --blue: {{{account.colors.great-outdoors-blue}}};
+        --yellow: {{{account.colors.jersey-yellow}}};
+        --orange: {{{account.colors.start-up-orange}}};
+      }
+
+      .conference{
+        --dynamiccolor: var(--pink);
+      }
+      .business{
+        --dynamiccolor: var(--orange);
+      }
+      .invest{
+        --dynamiccolor: var(--blue);
+      }
+
+
+      html {
+        font-family: "Sheffield Headline";
+        word-break: break-word;
+      }
+
+      .backgroundImage {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+
+      .business .imageContainer1 .backgroundImage { position: absolute; }
+
+      .tinymce_style--dark{
+        font-family: "Sheffield Stencil";
+      }
+
+      .backgroundImage div {
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }      
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .logoImg						{	display: none;		}
+      .conference .logo--conference	{	display: block;		}
+      .business .logo--business		{	display: block; 	}
+      .invest .logo--invest			{	display: block;		}
+
+      .conference .imageContainer1 .logo	{	display: none;	}
+      .invest .imageContainer1 .logo		{	display: none;	}
+      .business .imageContainer2 .logo		{	display: none;	}
+
+      .logo{
+        width: 150px;
+        height: 150px;
+      }
+
+      .logo svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .conference .logo{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+
+
+      .imageContainer1, .imageContainer2{
+        position: absolute;
+        overflow: hidden;
+      }
+
+      .conference .imageContainer1 {
+        bottom: 0;
+        width: 755px;
+        height: 495px;
+        right: 310px;
+      }
+
+      .conference .imageContainer2 {
+        top: 0;
+        right: 0;
+        width: 310px;
+        height: 655px;
+      }
+
+      .conference .heading {
+        max-height: 2.7em;
+        font-size: 54pt;
+      }
+
+      .conference .textBox{
+        position: absolute;
+        top: 119px;
+        left: 82px;
+        width: 470px;
+        /*font-size: 54pt;
+        line-height: 44pt;*/
+      }
+
+      .conference .social{
+        position: absolute;
+        bottom: 31px;
+        right: 72px;
+        font-size: 14pt;
+        width: 200px;
+        line-height: 14pt;
+      }
+
+
+      /*Invest Templates*/
+      .invest .imageContainer1{
+        top: 0;
+        left: 0;
+        width: 612px;
+        height: 690px;
+      }
+
+      .invest .imageContainer2{
+        bottom: 0;
+        right: 202px;
+        width: 412px;
+        height: 395px;
+      }
+
+      .invest .logo{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 156px;
+        height: 156px;
+      }
+
+      .invest .textBox{
+        position: absolute;
+        bottom: 437px;
+        right: 92px;
+        width: 370px;
+        /*font-size: 35pt;
+        line-height: 39pt;*/
+      }
+
+      .invest .heading {
+        max-height: 3.5em;
+        font-size: 35pt;
+      }
+
+      .invest .social{
+        position: absolute;
+        bottom: 16px;
+        right: 33px;
+        font-size: 14pt;
+        width: 140px;
+      }
+
+      /*Business Templates*/
+      .business .imageContainer1{
+        top: 47px;
+        right: 47px;
+        /*width: calc(100% - 47px);*/
+        height: calc(100% - 47px);
+        
+        position: relative;
+      }
+
+      .business .imageContainer2{
+        display: none;
+      }
+
+      .business .textBox{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 460px;
+        height: 654px;
+        z-index: 1;
+        padding-left: 83px;
+        padding-top: 117px;
+      }
+
+      .business .heading {
+        max-height: 2em;
+        padding-right: 35pt;
+        font-size: 55pt;
+        color: #fff;
+      }
+
+      .business .logo{
+        position: absolute;
+        /*bottom: 3mm;*/
+        /*left: 460px;*/
+        width: 151px;
+        height: 151px;
+        z-index: 99;
+        
+        left: 507px;
+        top: 607px;
+      }
+      
+      .business .social{
+        position: absolute;
+        bottom: 14px;
+        right: 83px;
+        font-size: 14pt;
+        width: 190px;
+      }
+
+      .socialColor--black,{
+        color: var(--black);
+      }
+
+      .socialColor--primary-subbrand-colour{
+        color: var(--dynamiccolor);
+      } 
+
+      .business .textBox .heading{
+        color: var(--white);
+        font-size: 53pt;
+        line-height: 44pt;
+      }
+
+      .business.textBox--orange .textBox{
+        background-color: var(--orange);
+      }
+
+      .business.textBox--orange .textBox .tinymce_style--dark{
+        color: var(--black);
+      }
+
+      .business.textBox--black .textBox{
+        background-color: var(--black);
+      }
+
+      .business.textBox--black .textBox .tinymce_style--dark{
+        color: var(--orange);
+      }
+
+      .wordmarkColor--black .textBox .heading, .wordmarkColor--subbrand-color .textBox .heading .tinymce_style--dark{
+        color: var(--dynamiccolor);
+      }
+
+      .wordmarkColor--black .textBox .heading .tinymce_style--dark, .wordmarkColor--subbrand-color .textBox .heading{
+        color: var(--black);
+      }
+
+
+
+
+
+
+
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" class="" data-crop="{{show-crop}}">
+    <div class="page {{formatSize}} {{sheffield-subbrand-theme}} textBox--{{subbrandTextboxColor}} wordmarkColor--{{wordmarkColor-subbrand}}">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="textBox">
+            {{#heading-text}}
+            <div class="heading">
+              <div class="heading__inner sheffield-yes textFit--vertical" style="line-height:{{SCC_line-spacing--lc}}em";>{{{heading-text}}}</div><!--heading__inner-->
+            </div>
+            {{/heading-text}}
+          </div>
+          <div class="imageContainer1">
+            <div class="backgroundImage"><div>{{{featureImage1}}}</div></div>
+            <div class="logo">
+              <!--
+              <img class="logoImg logo--conference" src="{{account.logos.conference-scc-2}}" />
+              <img class="logoImg logo--business" src="{{account.logos.business-scc-2}}" />
+              <img class="logoImg logo--invest" src="{{account.logos.invest-scc-2}}" />
+              -->
+              <div class="logoImg logo--business">{{{account.snippets.logo-business}}}</div>
+              <div class="logoImg logo--conference">{{{account.snippets.logo-conference}}}</div>
+              <div class="logoImg logo--invest">{{{account.snippets.logo-invest}}}</div>
+            </div>
+          </div>
+          <div class="imageContainer2">
+            <div class="backgroundImage"><div>{{{featureImage2}}}</div></div>
+            <div class="logo">
+              <!--
+              <img class="logoImg logo--conference" src="{{account.logos.conference-scc-2}}" />
+              <img class="logoImg logo--business" src="{{account.logos.business-scc-2}}" />
+              <img class="logoImg logo--invest" src="{{account.logos.invest-scc-2}}" />
+              -->
+              <div class="logoImg logo--business">{{{account.snippets.logo-business}}}</div>
+              <div class="logoImg logo--conference">{{{account.snippets.logo-conference}}}</div>
+              <div class="logoImg logo--invest">{{{account.snippets.logo-invest}}}</div>
+            </div>
+          </div>
+
+          {{#social-text}}
+          <div class="social socialColor--{{social-colour-target}}">
+            <p>@{{{social-text}}}</p>
+          </div>
+          {{/social-text}}
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+      function specialWording(selector) {
+        const elements = document.querySelectorAll(selector);
+        Array.prototype.slice.call(elements).forEach(function (e) {
+          if (!e.getElementsByClassName('tinymce_style--dark').length) {
+            const newHTML = e.innerHTML.replace(/sheffield/gi, '<span class="tinymce_style--dark">$&</span>');    
+            if (newHTML !== e.innerHTML) {            
+              e.innerHTML = newHTML;
+            }
+          }
+        });
+      }
+
+      window.addEventListener('DOMSubtreeModified', function () {
+        specialWording('.sheffield-yes'); 
+      }); 
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+      TextFit.fit({
+        selector: '.textFit--vertical',
+        fitMode: 'vertical',
+        alignItems: 'flex-start'
+      });
+
+      function detectSystem() {
+        const isMac = window.navigator.appVersion.includes('Mac');
+        if ( isMac ) document.body.classList.add('is-mac');
+      }
+
+      detectSystem();
+
+    </script>
+
+    <script type="text/javascript">
+      // Add many fallbacks for Print Ready
+      document.addEventListener('DOMContentLoaded', function(event) {
+        document.dispatchEvent(new Event('printready'));
+      });
+
+      setTimeout(function() {
+        document.dispatchEvent(new Event('printready'));
+      }, 1000);
+
+      document.dispatchEvent(new Event('printready'));
+    </script>
+
+  </body>
+</html>
