@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #ffffff;">
+<head>
+  <style type="text/css">
+    :root {
+      --blue: #00A5C8;
+      --pink: #ED6EA7;
+      --red: #E62249;
+      --green: #00A470;
+      --yellow: #FFD744;
+      --cotton: #FAF5DC;      
+      --white: #ffffff;
+      --light-grey: #DBE2DF;
+      --dark-grey: #07292B;
+      --black: #000000;
+    }
+
+    html {
+      font-size: 100px !important;
+    }
+  </style>
+  <link type="text/css" rel="stylesheet" href="global.css" />
+  <link type="text/css" rel="stylesheet" href="main.css" />
+  <style type="text/css">    
+    .bg-4 { background-color: var(--{{{Background-Colour}}}); }
+  </style>
+</head>
+
+<body>
+  <div class="page stencil-yes">
+    <div class="bleed">
+      <div class="fit wrapper">
+        <div class="bg-1">{{{Background-Image-Far-Back}}}</div>
+        <div class="bg-2">{{{Background-Image-Middle-Back}}}</div>
+        <div class="bg-3">{{{Background-Image-Middle-Front}}}</div>
+        <div class="bg-4">
+          {{#IG-Text}}
+          <div class="box-limit text">
+            <div class="box-inner bg-{{{Background-Colour}}}">
+              {{{IG-Text}}}
+            </div>
+          </div>
+          {{/IG-Text}}
+        </div>
+      </div>
+      <div class="fit test contain .d-none"></div>
+      <div class="fit boundary"></div>
+    </div>
+  </div>
+
+  <script>
+    const showCrop = '{{show-crop}}' === 'true';
+
+    function cropMarks(showCrop) {
+      if (showCrop) {
+        document.querySelector('body').classList.add('crop');
+      }
+
+      Array.prototype.slice.call(document.querySelectorAll('.page')).forEach(function (page) {
+        const parser = new DOMParser();
+        const cropString = '<div class="crop-marks"><span class="cm1"></span><span class="cm2"></span><span class="cm3"></span><span class="cm4"></span></div>';
+        const cropNode = parser.parseFromString(cropString, "text/html").body.firstChild;
+        !!showCrop && page.insertBefore(cropNode, null);
+      });
+    }
+
+    function getSize() {
+      const vw = (showCrop ? window.innerWidth : window.innerWidth + 57.62) / 100;
+      const vh = (showCrop ? window.innerHeight : window.innerHeight + 57.62) / 100;
+      const vmin = Math.min(vw, vh);
+      const vmax = Math.max(vw, vh);
+      return (vmin * 2) + (vmax * 1.41891892) + (vh * 2);
+    }
+
+    function setSize() {
+      const size = getSize();
+      document.documentElement.style.fontSize = `${size}px`;
+    };
+
+    function heightObservable() {
+      Array.prototype.slice.call(document.querySelectorAll('.box-limit .box-inner')).forEach(function (e) {
+        checkHeight(e);
+      });
+    }
+
+    function checkHeight(element) {
+      const elementHeight = element.getBoundingClientRect().height;
+      const parent = element.parentElement;
+      const parentHeight = parent.getBoundingClientRect().height;
+
+      if (elementHeight > parentHeight) {
+        parent.classList.add('overflow');
+      } else {
+        parent.classList.remove('overflow');
+      }
+    }
+
+    function specialWording(selector) {
+      const elements = document.querySelectorAll(selector);
+      Array.prototype.slice.call(elements).forEach(function (e) {
+        if (!e.getElementsByClassName('txt-stencil').length) {
+          const newHTML = e.innerHTML.replace(/sheffield/gi, '<span class="txt-stencil">$&</span>');
+          if (newHTML !== e.innerHTML) {
+            e.innerHTML = newHTML;
+          }
+        }
+      });
+    }
+
+    cropMarks(showCrop);    
+    specialWording('.stencil-yes .text');
+
+    window.addEventListener('resize', function () {
+      // setSize();
+    });
+
+    window.addEventListener('load', function () {
+      heightObservable();
+    });
+
+    window.addEventListener('DOMSubtreeModified', function () {
+      specialWording('.stencil-yes .text token-value');
+      heightObservable();
+    });    
+  </script>
+</body>
+
+</html>
