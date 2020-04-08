@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html data-sign="OS?">
+  <!--
+   {{{SH_box-position--ig}}}
+  -->
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    <style>
+      @import "https://outfit-assets-production.s3.amazonaws.com/fonts/sheffield-headline/stylesheet.css";
+      @import "https://outfit-assets-production.s3.amazonaws.com/fonts/sheffield-stencil/stylesheet.css";
+
+      :root {
+        --black: {{{ account.colors.industrial-black }}};
+        --white: {{{ account.colors.gallery-white }}};
+        --grey: {{{ account.colors.misty-grey }}};
+        --pink: {{{ account.colors.people-s-pink }}};
+
+        --blue: {{{account.colors.great-outdoors-blue}}};
+        --yellow: {{{account.colors.jersey-yellow}}};
+        --green: {{{account.colors.seven-hills-green}}};
+        --red: {{{account.colors.vibrant-red}}};
+        --bog-cotton: {{{account.colors.bag-cotton}}};
+        --orange: {{{account.colors.start-up-orange}}};
+      }
+
+      html {
+        font-family: "Sheffield Headline";
+        font-size: 11pt;
+        color: #000;
+        word-break: break-word;
+      }
+
+      .container {
+        display:flex;
+        background-color:var(--{{{secondary-colour-background}}});
+      }
+
+      .position--top-right .container,
+      .position--bottom-right .container{
+        flex-direction: row-reverse;
+      }
+
+      .position--bottom-right .container, 
+      .position--bottom-left .container {
+        align-items: flex-end;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      } 
+
+      .repositioned-image{
+        position:relative;
+        top:0;
+        right:0;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+      }
+
+      .featured-image{
+        width: 16.766em;
+        height: 12.39em;
+        display:block;
+        z-index:1;
+      }
+
+      .featured-image div{
+        width:100%;
+        height:100%;
+      }
+
+      .background-block{
+        width: 25.53em;
+        height: 14.15em;
+        display: block;
+        background-color: var(--{{{primary-colour-background}}});
+        position: absolute;
+        z-index: 0;
+      }
+
+      .position--top-right .container,
+      .position--top-left .container{
+        top: 0;
+      }
+
+      .position--bottom-right .container, 
+      .position--bottom-left .container {
+        bottom: 0;
+      }
+
+      .tinymce_style--dark{
+        font-family: "Sheffield Stencil";
+        color: var(--black);
+      }
+
+      .heading {
+        max-height: 5.7em;
+        margin-left: 0.65em;
+        margin-top: 0.65em;
+        margin-bottom: 1.18rem;
+        width: 3.7em;
+        padding-right: 0.5rem;
+        font-size: 2.04em;
+        color:var(--white);
+        z-index:1;
+        word-break: keep-all;
+      }
+
+      .format--instagram .heading {
+        font-size: 4.8em;
+        max-height: 15rem;
+        width: 7.8rem;
+        margin-left: 0.13em;
+        margin-top: 0.22em;
+      }
+
+      .format--event-post .heading {
+        font-size: 2.1em;
+        max-height: 11.6rem;
+        width: 8rem;
+      }
+
+      .heading {
+        font-size: 1em;
+      }
+
+      .format--facebook .background-block{
+        width: 25.95em;
+        height: 13.35em;
+      }
+
+      .format--facebook .heading{
+        font-size: 1.96em;
+      }
+      .format--facebook .featured-image{
+        width: 16.766em;
+        height: 11.8em;
+      }
+      .format--instagram .featured-image{
+        width: 8.766em;
+        height: 15.39em;
+      }
+
+      .format--instagram .background-block{
+        width: 17em;
+        height: 17em;
+      }
+      .format--twitter .featured-image{
+        width: 13.39em;
+        height: 13.39em;
+      }
+      .format--twitter .heading {
+        font-size: 2.215em;
+      }
+      .format--twitter .background-block{
+        width: 22.53em;
+        height: 14.9em;
+      }
+      .format--linkedin .featured-image{
+        width: 26.766em;
+        height: 9.5em;
+      }
+      .format--linkedin .heading{
+        font-size: 1.58em;
+      }
+      .format--linkedin .background-block{
+        width: 33.55em;
+        height: 11em;
+      }
+
+
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" class="format--{{format}} u-placeholder-{{ placeholder-toggle-new }}{{^placeholder-toggle-new}}hide{{/placeholder-toggle-new}}
+                                         position--{{{SH_box-position--ig}}}{{^SH_box-position--ig}}top-left{{/SH_box-position--ig}}"
+        data-crop="{{show-crop}}">
+    <div class="placeholderMaster" data-opacity="{{ placeholder-opacity }}">
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-1 }}"></div>
+    </div><!-- end placeholderMaster -->
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="featured-image">   
+            <div>
+              <div class="repositioned-image">
+                {{{featured-image}}}
+              </div>
+            </div>
+          </div>
+          <div class="background-block "></div>
+
+          <div class="heading">
+            <div class="heading__inner sheffield-yes textFit--vertical" style="line-height:{{SCC_line-spacing--ep}}em";>
+              {{{heading-event-post}}}
+            </div><!--heading__inner-->
+          </div><!--heading-->
+
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+        });
+      });
+
+      function specialWording(selector) {
+        const elements = document.querySelectorAll(selector);
+        Array.prototype.slice.call(elements).forEach(function (e) {
+          if (!e.getElementsByClassName('tinymce_style--dark').length) {
+            const newHTML = e.innerHTML.replace(/sheffield/gi, '<span class="tinymce_style--dark">$&</span>');    
+            if (newHTML !== e.innerHTML) {            
+              e.innerHTML = newHTML;
+            }
+          }
+        });
+      }
+
+      window.addEventListener('DOMSubtreeModified', function () {
+        specialWording('.sheffield-yes'); 
+      }); 
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+      });
+
+      placeholderController();
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+      TextFit.fit({
+        selector: '.textFit--vertical',
+        fitMode: 'vertical',
+        alignItems: 'flex-start'
+      });
+
+      function detectSystem() {
+        const isMac = window.navigator.appVersion.includes('Mac');
+        if ( isMac ) document.body.classList.add('is-mac');
+      }
+
+      detectSystem();
+
+    </script>
+
+
+  </body>
+</html>
