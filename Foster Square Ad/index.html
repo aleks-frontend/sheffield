@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Empty Starter Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="minireset.css">
+    <link rel="stylesheet" type="text/css" href="crop.css">
+    <link rel="stylesheet" href="https://outfit-assets-production.s3.amazonaws.com/fonts/SCC/stylesheet.css">
+    <script src="prefixfree.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/resize-observer-polyfill@1.5.0/dist/ResizeObserver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/javascript-debounce@1.0.0/dist/javascript-debounce.min.js"></script>  
+
+    <style>
+      * {
+        -webkit-font-smoothing: antialiased;
+        margin: 0;
+        padding: 0;
+      }
+      
+      html {
+        overflow: hidden;
+      }
+
+      body {
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 900;
+      }
+
+      h1 { font-size: 7.141em; line-height: 0.8em; }
+      h2 { font-size: 2.617em; line-height: 1em; }
+
+      sup { font-size: 0.5em; }
+
+      small { font-size: 0.45em; }
+
+      ul {
+        padding-left: 0.1em;
+        margin: 0.6em 0 0 0;
+        line-height: 1.3em;
+      }
+
+      li {
+        margin-bottom: 0.3em;
+        display: flex;
+      }
+
+      li:before {
+        content: "\2022";
+        margin-right: 0.6em;
+      }
+      
+      .bleed {
+        overflow: hidden;
+      }
+
+      .fit {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 3mm;
+        position: absolute;
+      }
+
+      .content {
+        padding: 1.3em 1em;
+        height: 100%;
+        width: 100%;
+        color: #231F20;
+        font-size: 2em;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 1.1em;
+        text-align: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+      }
+
+      .overflow-container {
+        overflow: visible;
+        display: flex;
+    	align-items: center;
+      }
+
+      .overflow{border:1px dashed red;position:relative}.overflow::before,.overflow:hover:after{position:absolute;right:5px;box-sizing:border-box}.overflow h1,.overflow h2,.overflow h3,.overflow h4,.overflow h5,.overflow h6,.overflow li,.overflow p{color:red!important}.overflow::before{content:'+';z-index:5;top:5px;height:15px;width:15px;border:1px solid red;color:red;padding:2px 2px 2px 3px;font-size:13px;line-height:8px;background-color:#fff;text-align:center}.overflow:hover:before{background-color:red;color:#fff}.overflow:after{display:none}.overflow:hover:after{display:block;content:'There is overset content in this column. Please remove it';top:25px;background-color:#000;color:#fff;border-radius:2px;padding:5px;font-size:11px;font-weight:400;line-height:1.1em;text-align:right;width:15em}
+
+      .fittext {
+        width: 100%;
+      }
+
+      .fittext h1 {
+        white-space: nowrap;
+        display: inline-block;	
+      }
+      
+      .placeholder {
+        display: initial;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/f167a5b5d26d1423051841ca02fd0568/Foster_Future_Park_Square_Ad-01.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 100;
+        pointer-events: none;
+        opacity: 0;
+      }
+      
+      .banner-title {
+        height: 270pt;
+    	transform: translateX(-11pt);
+      }
+      
+      .banner-subtitle {
+        position: absolute;
+        z-index: 1;
+        width: 166pt;
+        transform: translate(74pt, 110pt);
+      }
+      
+      .logo {
+        position: absolute;
+        bottom: 31pt;
+        right: 24pt;
+        height: 60pt;
+        padding: 3pt;
+        background: darkgrey;
+      }
+      
+      .details {
+        max-height: 155pt;
+        max-width: 200pt;
+        text-align: start;
+        position: absolute;
+        left: 23pt;
+        bottom: 53pt;
+        font-family: 'Arial MT Cn Ex Bd', Fallback, sans-serif;
+        font-weight: 800;
+        color: #BD1D1D;
+    	font-size: 18pt;
+        line-height: 1.2;
+      }
+      
+      .ad-url-container {
+        position: absolute;
+        bottom: 30pt;
+        left: 23pt;
+        font-family: 'Arial MT Cn Ex Bd', Fallback, sans-serif;
+        font-weight: 800;
+        font-size: 12.7pt;
+        color: #BD1D1D;
+		width: 166pt;
+      }
+      
+      .ad-url {
+        width: min-content;
+      }
+      
+      .main-image {       
+        position: absolute;
+        right: -3mm;
+        bottom: -3mm;
+        height: 172mm;
+        width: 82mm;
+        z-index: -1;
+        overflow: visible;
+      }               
+      
+      /** Hot Fixes - Image responsive */
+      .main-image .token-value > div,
+      .main-image > div {
+        overflow: visible !important;
+      }
+      
+      @media screen {
+        .print .fit {
+          border: 1px dashed #0ff;
+        }
+      }
+      
+    </style>
+  </head>
+  <body style="background: white;">
+    <div class="page">
+      <div class="bleed center-children">
+        <div class="fit">          
+          <div class="placeholder"></div>
+          <img class="banner-title" src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/abd9042f677b0413ddc0494036ab400a/Foster_Future.svg"/>
+          <img class="banner-subtitle" src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4d95439465428ab768b043588a92d6a3/Support_Logo.svg"/>
+      	  <div class="main-image">
+          	{{{ main-image }}}
+          </div>
+          <div class="content">
+            {{#ad-details}}
+            <div class="details">
+              <div class="check-overflow">
+              	{{{ad-details}}}
+              </div>
+            </div>
+            {{/ad-details}}
+            {{#ad-url}}
+            <div class="ad-url-container">
+              <div class="ad-url fittext">
+                <a src="{{{ad-url}}}">{{{ad-url}}}</a>
+              </div>
+            </div>
+            {{/ad-url}}
+          </div>
+      	  <img class="logo" src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/a89b85a58390f2649376a9b6f24a9f85/Sheffield_White_Logo.svg"/>
+        </div>
+      </div><!--bleed-->
+    </div><!--page-->
+    <script>
+      window.showCrop = {{show-crop}};
+
+      if (window.showCrop) {
+        document.body.classList.add("print")
+      } else {
+        document.body.classList.add("screen")
+      }
+
+      setInterval(function(){ 
+        checkHeight(document.getElementsByClassName('check-overflow'));
+      }, 1000);
+
+
+      function checkHeight(element) {
+        for (i = 0 ; i < element.length ; i++ ) {
+          var currentElement = element[i];
+          var height         = currentElement.offsetHeight;
+          var parent         = currentElement.parentNode;
+          var parentHeight   = parent.offsetHeight;
+
+          if (height > parentHeight) {
+            parent.classList.add('overflow');
+          } else {
+            parent.classList.remove('overflow');
+          }
+
+          if ((currentElement).parentNode.classList.contains('overflow')) {
+            document.body.classList.add('overflow-true');
+          } else {
+            document.body.classList.remove('overflow-true');
+          }
+        }
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

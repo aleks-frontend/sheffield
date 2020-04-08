@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Empty Starter Template</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script src="prefixfree.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/resize-observer-polyfill@1.5.0/dist/ResizeObserver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/javascript-debounce@1.0.0/dist/javascript-debounce.min.js"></script>    
+  </head>
+  <body style="background: white;">
+    <div class="page">
+      <div class="bleed">
+        <div class="test fit contain d-none"></div>
+        <div class="wrapper fit">
+          <div class="top">
+            <div class="hero-image">
+              {{{main-image}}}
+            </div>
+            <img class="banner-title" src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/03e54cd18b24e5c8bd493af093028197/Asset%201.svg"/>
+            {{#banner-subtitle}}
+            <div class="banner-subtitle">
+              {{{banner-subtitle}}}
+            </div>
+            {{/banner-subtitle}}
+          </div>
+          <div class="bottom">
+            <div class="background"></div>
+            {{#heading}}
+              <div class="box-limit heading">
+                <div class="box-inner">{{{heading}}}</div>
+              </div>
+            {{/heading}}
+            <div class="details">              
+              <div class="box-limit left">
+                <div class="box-inner">
+                  {{{column1}}}
+                </div>
+              </div>
+              <div class="box-limit right">
+                <div class="box-inner">
+                  {{{column2}}}
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+              <div class="footer-left">
+                {{#ad-details}}
+                <div class="box-limit ad-details">
+                  <div class="box-inner">
+                    {{{ad-details}}}
+                  </div>
+                </div>
+                {{/ad-details}}
+                {{#ad-url}}
+                <div class="box-limit ad-url">
+                  <div class="box-inner">
+                    {{{ad-url}}}
+                  </div>
+                </div>
+                {{/ad-url}}
+              </div>
+              <div class="footer-right">
+                <img class="logo" src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/a89b85a58390f2649376a9b6f24a9f85/Sheffield_White_Logo.svg"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--bleed-->
+    </div><!--page-->
+    <script>
+      const showCrop = '{{show-crop}}' === 'true';
+
+      function cropMarks(showCrop) {
+        if (showCrop) {
+          document.querySelector('body').classList.add('crop');
+        }
+
+        Array.prototype.slice.call(document.querySelectorAll('.page')).forEach(function (page) {
+          const parser = new DOMParser();
+          const cropString = '<div class="crop-marks"><span class="cm1"></span><span class="cm2"></span><span class="cm3"></span><span class="cm4"></span></div>';
+          const cropNode = parser.parseFromString(cropString, "text/html").body.firstChild;
+          !!showCrop && page.insertBefore(cropNode, null);
+        });
+      }
+
+      function getSize() {
+        const vw = (showCrop ? window.innerWidth : window.innerWidth + 57.62) / 100;
+        const vh = (showCrop ? window.innerHeight : window.innerHeight + 57.62) / 100;
+        const vmin = Math.min(vw, vh);
+        const vmax = Math.max(vw, vh);
+        return (vmin * 2) + (vmax * 1.41891892) + (vh * 2);
+      }
+
+      function setSize() {
+        const size = getSize();
+        document.documentElement.style.fontSize = `${size}px`;
+      };
+
+      function heightObservable() {
+        Array.prototype.slice.call(document.querySelectorAll('.box-limit .box-inner')).forEach(function (e) {
+          checkHeight(e);
+        });
+      }
+
+      function checkHeight(element) {
+        const elementHeight = element.getBoundingClientRect().height;
+        const parent = element.parentElement;
+        const parentHeight = parent.getBoundingClientRect().height;
+
+        if (elementHeight > parentHeight) {
+          parent.classList.add('overflow');
+        } else {
+          parent.classList.remove('overflow');
+        }
+      }
+
+      cropMarks(showCrop);
+      setSize();
+
+      window.addEventListener('resize', function () {
+        setSize();
+      });
+
+      window.addEventListener('load', function () {
+        heightObservable();
+      });
+
+      window.addEventListener('DOMSubtreeModified', function () {
+        heightObservable();
+      }); 
+    </script>
+  </body>
+</html>
